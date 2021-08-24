@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :withdraws
 
-  validates :phone_number, :first_name, :last_name, :experience, :speciality, :mail_address, presence: true
+  validates :phone_number, :first_name, :last_name, :experience, :speciality, presence: true
 end
