@@ -1,0 +1,2 @@
+class ToxicsController < ApplicationController
+end
