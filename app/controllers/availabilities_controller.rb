@@ -1,7 +1,7 @@
 class AvailabilitiesController < ApplicationController
   def index
     @availabilities = Availabilitie.where(user_id: current_user.id)
-    @Availabilitie = Availabilitie.new
+    @availabilitie = Availabilitie.new
   end
 
   def create
@@ -18,7 +18,7 @@ class AvailabilitiesController < ApplicationController
 
   private
 
-  def availabilitie_params
+  def availability_params
     params.require(:availabilitie).permit(:date, :user_id)
   end
 end
