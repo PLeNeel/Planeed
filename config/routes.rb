@@ -12,10 +12,8 @@ Rails.application.routes.draw do
   resources :missions, only: [] do
     resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:index] do
-    resources :services, only: [:show]
-  end
-  resources :services, only: [] do
+  resources :bookings, only: [:index]
+  resources :services, only: [:show] do
     resources :messages, only: [:create, :destroy]
     resources :toxics, only: [:index]
   end
