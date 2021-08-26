@@ -17,7 +17,8 @@ class AvailabilitiesController < ApplicationController
 
   private
 
-  def availabilitie_params
+
+  def availability_params
     params.require(:availability).permit(:date, :user_id)
   end
 end

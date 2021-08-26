@@ -41,4 +41,8 @@ const horaire = () => {
   });
 }
 
+// const crea = () => {
+//   window.location.href = "@Url.Action("Create", "Availabilities")" + "/";
+// }
+
 export { horaire };
