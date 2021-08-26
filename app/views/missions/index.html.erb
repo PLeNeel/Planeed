@@ -1,5 +1,4 @@
 <div class="container">
-  <% render html: 'navbar' %>
     <% @missions.each do |mission| %>
       <%= link_to mission_bookings_path(mission), method: :post do %>
         <div class="mission-card">
