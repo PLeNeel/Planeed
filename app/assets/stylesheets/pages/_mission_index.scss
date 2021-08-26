@@ -1,0 +1,35 @@
+.mission-card {
+  position: relative;
+  width: 345px;
+  height: 120px;
+  margin-top: 20px;
+  padding: 3px;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid black;
+  background: #2994C4;
+  color: black;
+}
+
+.mission-card-name {
+  font-size: 24px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.mission-card-date {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.mission-card-description {
+  font-size: 16px;
+  position: absolute;
+  top: 40px;
+  left: 5px;
+
+}

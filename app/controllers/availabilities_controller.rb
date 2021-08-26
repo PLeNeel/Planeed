@@ -4,10 +4,6 @@ class AvailabilitiesController < ApplicationController
     @Availabilitie = Availabilitie.new
   end
 
-  # def new
-  #   @Availabilitie = Availabilitie.new
-  # end
-
   def create
     @availabilitie = Availabilitie.new(availabilitie_params)
     @user = User.find(:user_id)
@@ -26,5 +22,3 @@ class AvailabilitiesController < ApplicationController
     params.require(:availabilitie).permit(:date, :user_id)
   end
 end
-
-# find or create method

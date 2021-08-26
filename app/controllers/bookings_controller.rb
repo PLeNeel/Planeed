@@ -16,21 +16,19 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @user = User.find(:user_id)
-    @mission = Mission.find(:mission_id)
-    @booking.user = @user
-    @booking.mission = @mission
+    @booking = Booking.new(progress: false)
+    @booking.user = current_user
+    @booking.mission = Mission.find(params[:mission_id])
     if @booking.save
-      redirect_to availabilities_path
+      redirect_to bookings_path
     else
-      render 'missions/index'
+      redirect :back
     end
   end
 
   private
 
-  def booking_params
-    params.require(:booking).permit(:progress, :user_id, :mission_id)
-  end
+  # def mission_params
+  #   params.require(:mission).permit(:mission_id)
+  # end
 end
