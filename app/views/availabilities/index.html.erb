@@ -1,0 +1,19 @@
+
+<% (0..9).each do |av| %>
+  <div class="card-planning">
+  <%# <%= link_to 'Missions', new_availability_booking_path, class:"btn btn-primary"%>
+  <%# <%= link_to_if availability_id != "", "", new_availability_booking_path, class: "dropdown-item" %>
+    <div class="card-planning-text">
+      <p class='day'></p>
+    </div>
+    <div>
+      <label class="switch" for="link">
+        <input type="checkbox" id="link">
+          <%# <a href="new_availability_booking_path"><label for="t1"></label></a> %>
+          <%# <%= link_to_toggle_user_subscription(user:@user, artist:artist)%>
+          <%# <%= link_to_if availability_id != "", "", new_availability_booking_path, class: "dropdown-item" %>
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+<% end %>

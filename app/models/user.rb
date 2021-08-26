@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :service
-  has_many :availabilities
-  has_many :bookings
+  has_many :availabilities, dependent: :destroy
+  has_many :bookings, dependent: :destroy
   has_many :withdraws
 
   validates :phone_number, :first_name, :last_name, :experience, :speciality, presence: true
