@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'show/:id', to: 'users#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :availabilities, only: [:index, :new, :create] do
+  resources :availabilities, only: [:index, :new, :create, :destroy] do
     resources :bookings, only: [:new, :create]
     resources :missions, only: [:index]
   end
