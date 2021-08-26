@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
   def show
-    @service = Service.find(:id)
+    @service = Service.find(params[:id])
   end
 end

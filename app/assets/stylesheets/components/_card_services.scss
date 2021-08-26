@@ -1,0 +1,46 @@
+.card_services {
+width: 365px;
+height: 90px;
+background-color: #055052;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+border-radius: 10px;
+margin-bottom: 16px;
+margin-top: 4px;
+border: solid 1px #003638;
+
+  h1 {
+    color: #F3F2C9;
+    position: absolute;
+    left: 38.33%;
+    right: 4.17%;
+    top: 0%;
+    bottom: 0%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+  }
+  img {
+    position: absolute;
+    left: 10.41%;
+    right: 73.15%;
+    top: 16.67%;
+    bottom: 16.67%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #C4C4C4;
+  }
+
+
+
+
+
+
+
+}
