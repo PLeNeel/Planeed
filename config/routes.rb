@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
     resources :missions, only: [:index]
   end
+  resources :services, only: [:show]
   resources :bookings, only: [:index] do
     resources :services, only: [:show]
   end
