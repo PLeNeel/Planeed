@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   resources :toxics, only: [] do
     resources :withdraws, only: [:create, :new]
   end
+  resources :missions, only: [:index]
 
 end
