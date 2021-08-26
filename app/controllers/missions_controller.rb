@@ -1,8 +1,7 @@
 class MissionsController < ApplicationController
 
   def index
-    @mission = Mission.where(service_id: service.id)
-    @booking = Booking.new
+    availability_date = Availabilitie.find(params[:availability_id]).date
+    @missions = Mission.where(date: availability_date)
   end
-
 end

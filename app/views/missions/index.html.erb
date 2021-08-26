@@ -1,1 +1,12 @@
-<h1>Hey mgl</h1>
+<div class="container">
+  <% render html: 'navbar' %>
+    <% @missions.each do |mission| %>
+      <%= link_to mission_bookings_path(mission), method: :post do %>
+        <div class="mission-card">
+          <div class="mission-card-name">service <%= mission.service.name %></div>
+          <div class="mission-card-date"><%= mission.date %></div>
+          <div class="mission-card-description"><%= mission.description %></div>
+        </div>
+      <% end %>
+  <% end %>
+</div>
