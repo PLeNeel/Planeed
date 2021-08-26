@@ -1,0 +1,30 @@
+.card-planning {
+  // position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  background: #055052;
+  border: 1px solid #003638;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: 5px;
+
+}
+
+.card-planning-text {
+  position: absolute;
+  left: 40px;
+  margin-top: 3px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+
+  color: #F3F2C9;
+}

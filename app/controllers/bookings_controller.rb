@@ -15,10 +15,6 @@ class BookingsController < ApplicationController
     }
   end
 
-  # def new
-  #   @booking = Booking.new
-  # end
-
   def create
     @booking = Booking.new(booking_params)
     @user = User.find(:user_id)
@@ -28,7 +24,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to availabilities_path
     else
-      render new
+      render 'missions/index'
     end
   end
 
