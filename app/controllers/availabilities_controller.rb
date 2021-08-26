@@ -1,15 +1,14 @@
 class AvailabilitiesController < ApplicationController
   def index
-    @availabilities = Availabilitie.where(user_id: current_user.id)
-    @Availabilitie = Availabilitie.new
+    @availabilities = Availability.where(user_id: current_user.id)
+    @availability = Availability.new
   end
 
   def create
-    @availabilitie = Availabilitie.new(availabilitie_params)
+    @availability = Availability.new(availability_params)
     @user = User.find(:user_id)
-    @availabilitie.user = @user
-    raise
-    if @availabilitie.save
+    @availability.user = @user
+    if @availability.save
       redirect_to availabilities_path
     else
       render new
@@ -19,6 +18,6 @@ class AvailabilitiesController < ApplicationController
   private
 
   def availabilitie_params
-    params.require(:availabilitie).permit(:date, :user_id)
+    params.require(:availability).permit(:date, :user_id)
   end
 end
