@@ -12,4 +12,8 @@
   color: black;
   text-align: center;
   line-height: 172px;
+  &:hover { text-decoration: none; color: #101010;}
+  &:focus { text-decoration: none; color: #101010;}
+  &:active { text-decoration: none; color: #101010;}
+  &:visited { text-decoration: none; color: #101010;}
 }
