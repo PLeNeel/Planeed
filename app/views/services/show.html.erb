@@ -1,14 +1,14 @@
 <div class="container">
-  <div class="column_flex">
-    <div class="card_services">
-      <h1>Service <%= @service.name.capitalize %></h1>
-      <img src="https://www.fillmurray.com/60/60" alt="steve">
+    <div class="blog-card mb-5">
+      <div class="description title">
+        <h1>Service <%= @service.name.capitalize %></h1>
+      </div>
     </div>
 
-    <div id="accordion">
+    <div id="accordion" class="accordion">
     <%# div card Numéro Important  %>
-        <div class="card">
-          <button class="card_service_phone collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        <div class="card mb-3" style="border-radius: 10px">
+          <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
           <h1>Numéros Important</h1>
           </button>
           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
@@ -19,7 +19,7 @@
         </div>
 
     <%# div card Journée type  %>
-        <div class="card">
+        <div class="card mb-3" style="border-radius: 10px">
           <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           <h1>Journée Type</h1>
           </button>
@@ -31,8 +31,8 @@
         </div>
 
     <%# div card Pathologies prévalentes  %>
-        <div class="card">
-          <button class="card_service_pathology collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <div class="card mb-3" style="border-radius: 10px">
+          <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
           <h1>Pathologies prevalentes</h1>
           </button>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
@@ -43,8 +43,8 @@
         </div>
 
     <%# div card Medicaments prévalents  %>
-        <div class="card">
-          <button class="card_service_pathology collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        <div class="card mb-3" style="border-radius: 10px">
+          <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
           <h1>Medicaments prevalents</h1>
           </button>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
@@ -54,22 +54,3 @@
           </div>
         </div>
     </div>
-
-
-        <div class="blog-card">
-        <div class="description">
-        <h1>Gestion Toxiques</h1>
-        </div>
-          </div>
-
-
-  </div>
-</div>
-<div class="container">
-<div class="blog-card">
-        <div class="description">
-          <h1>Le test</h1>
-          <h2> Service </h2>
-        </div>
-        </div>
-        </div>
