@@ -1,5 +1,6 @@
 class ToxicsController < ApplicationController
   def index
-    @toxics = Toxic.where(service_id: toxic.service.id)
+    @service = Service.find(params[:service_id])
+    @toxics = Toxic.where(service_id: params[:service_id])
   end
 end

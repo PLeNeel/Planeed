@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Service <%= @service.name %></h1>
+  <% @toxics.each do |toxic| %>
+    <div class="toxic-card">
+      <div class="toxic_name"><%= toxic.name %>
+        <div class="toxic_tq"><i>stock max: <%= toxic.total_quantity %></i></div>
+      </div>
+      <div class="toxic_ct">
+        <%= toxic.current_quantity %>
+      </div>
+      <div class="withdraw-btn">
+
+      </div>
+
+    </div>
+  <% end %>
+</div>

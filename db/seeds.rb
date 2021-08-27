@@ -16,57 +16,122 @@ Availability.destroy_all
 puts "destroying missions"
 Mission.destroy_all
 
-puts "creating services"
-Service.create(
+puts "creating services and toxics"
+ortho = Service.create(
   name: "orthopédique",
   phone_number: "06.33.33.33.33",
   predominant_disease: "pieds cassés",
   typical_workday: "6h45 - 14h",
   predominant_drugs: "morphine"
 )
-Service.create(
+10.times do
+  initial_quantity = [10, 20, 30].sample
+  Toxic.create(
+    name: Faker::Lorem.word,
+    total_quantity: initial_quantity,
+    current_quantity: initial_quantity,
+    service_id: ortho.id
+  )
+end
+
+cardio = Service.create(
   name: "cardiologique",
   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
   predominant_disease: "coronaropathie",
   typical_workday: "6h45 - 14h",
   predominant_drugs: "antiarythmiques"
 )
-Service.create(
+10.times do
+  initial_quantity = [10, 20, 30].sample
+  Toxic.create(
+    name: Faker::Lorem.word,
+    total_quantity: initial_quantity,
+    current_quantity: initial_quantity,
+    service_id: cardio.id
+  )
+end
+geria = Service.create(
   name: "gériatrique",
   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
   predominant_disease: "maladie d'Alzheimer",
   typical_workday: "6h45 - 14h",
   predominant_drugs: "Donépézil"
 )
-Service.create(
+
+10.times do
+  initial_quantity = [10, 20, 30].sample
+  Toxic.create(
+    name: Faker::Lorem.word,
+    total_quantity: initial_quantity,
+    current_quantity: initial_quantity,
+    service_id: geria.id
+  )
+end
+urge = Service.create(
   name: "des urgences",
   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
   predominant_disease: "fractures",
   typical_workday: "6h45 - 14h",
   predominant_drugs: "anti-douleurs"
 )
-Service.create(
+10.times do
+  initial_quantity = [10, 20, 30].sample
+  Toxic.create(
+    name: Faker::Lorem.word,
+    total_quantity: initial_quantity,
+    current_quantity: initial_quantity,
+    service_id: urge.id
+  )
+end
+uro = Service.create(
   name: "urologique",
   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
   predominant_disease: "inflamation",
   typical_workday: "6h45 - 14h",
   predominant_drugs: "antibiotique"
 )
-Service.create(
+10.times do
+  initial_quantity = [10, 20, 30].sample
+  Toxic.create(
+    name: Faker::Lorem.word,
+    total_quantity: initial_quantity,
+    current_quantity: initial_quantity,
+    service_id: uro.id
+  )
+end
+soins = Service.create(
   name: "des soins intensifs",
   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
   predominant_disease: "brûlures",
   typical_workday: "6h45 - 14h",
   predominant_drugs: "Cortisone"
 )
-Service.create(
+10.times do
+  initial_quantity = [10, 20, 30].sample
+  Toxic.create(
+    name: Faker::Lorem.word,
+    total_quantity: initial_quantity,
+    current_quantity: initial_quantity,
+    service_id: soins.id
+  )
+end
+gastro = Service.create(
   name: "gastrologique",
   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
   predominant_disease: "cancer",
   typical_workday: "6h45 - 14h",
   predominant_drugs: "Trastuzumab"
 )
-puts "#{Service.count} service created"
+10.times do
+  initial_quantity = [10, 20, 30].sample
+  Toxic.create(
+    name: Faker::Lorem.word,
+    total_quantity: initial_quantity,
+    current_quantity: initial_quantity,
+    service_id: gastro.id
+  )
+end
+puts "#{Service.count} services with #{Toxic.count} toxics created"
 
 # User model
 # t.string "first_name"
@@ -117,7 +182,7 @@ puts "#{User.count} user created"
 # t.datetime "updated_at", precision: 6, null: false
 # t.index ["user_id"], name: "index_availabilities_on_user_id"
 puts "creating availabilities"
-100.times do
+200.times do
   Availability.create(
     date: Faker::Date.between(from: Date.today, to: 2.month.from_now),
     user_id: User.all.sample.id

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :destroy]
     resources :toxics, only: [:index]
   end
-  resources :toxics, only: [] do
+  resources :toxics, only: [:update] do
     resources :withdraws, only: [:create, :new]
   end
   resources :missions, only: [:index]

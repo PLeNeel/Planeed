@@ -1,6 +1,6 @@
 class Toxic < ApplicationRecord
   belongs_to :service
-  has_many :withdraws
+  has_many :withdraws, dependent: :destroy
   validates :name, :total_quantity, :current_quantity, :name, presence: true
   validates :total_quantity, numericality: { only_integer: true }
 end
