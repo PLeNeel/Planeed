@@ -1,13 +1,13 @@
 .home-btns {
-  width: 285px;
-  height: 108px;
+  width: 293px;
+  height: 94px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 5px;
-  background: #2994C4;
+  background: $color_blue;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 24px;
   text-decoration: none;
-  color: black;
+  color: white;
   text-align: center;
   line-height: 108px;
   &:hover { text-decoration: none; color: #101010;}
@@ -38,4 +38,12 @@
   position: absolute;
   left: 45px;
   top: 680px;
+}
+
+.img_bg {
+  width: 338px;
+  background-size: cover;
+  background-position: center;
+  padding: 8px 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
