@@ -7,12 +7,14 @@ const horaire = () => {
        day = `0${day}`;
      }
     let month = date.getMonth() + 1;
+    let monthh = ""
      if (month < 10) {
-       month = `0${month}`;
+      monthh = `0${month}`;
      }
     let year = date.getFullYear();
+    x.title = `${day}-${monthh}-${year}`;
     let nameDay = date.getDay();
-    console.log(nameDay);
+    // console.log(nameDay);
     switch (nameDay) {
       case 0:
         nameDay = "Lundi";
@@ -36,13 +38,90 @@ const horaire = () => {
         nameDay = "Dimanche";
         break;
     }
-    x.innerHTML = `${day}/${month}/${year} - ${nameDay}`;
+
+    switch (month) {
+      case 1:
+        month = "Janvier";
+        break;
+      case 2:
+        month = "Février";
+        break;
+      case 3:
+        month = "Mars";
+        break;
+      case 4:
+        month = "Avril";
+        break;
+      case 5:
+        month = "Mai";
+        break;
+      case 6:
+        month = "Juin";
+        break;
+      case 7:
+        month = "Juillet";
+        break;
+      case 8:
+        month = "Août";
+        break;
+      case 9:
+        month = "Septembre";
+        break;
+      case 10:
+        month = "Octobre";
+        break;
+      case 11:
+        month = "Novembre";
+        break;
+      case 12:
+        month = "Décembre";
+        break;
+    }
+    // x.innerHTML = `${day}/${month}/${year} - ${month}`;
+    x.innerHTML = `${nameDay} ${day} ${month} ${year}`;
     date.setDate(date.getDate() + 1);
   });
 }
 
-// const crea = () => {
-//   window.location.href = "@Url.Action("Create", "Availabilities")" + "/";
-// }
+const crea = () => {
+  const btn = document.querySelectorAll('.card-planning');
+  btn.forEach((card) => {
+    const day = card.querySelector('.day');
+    // console.log(day);
+    const valeur = day.title.toString();
+    // console.log(valeur);
+    const sw = card.querySelector('#checkbox');
+    // console.log(sw);
+    sw.addEventListener(("click"), (event) => {
+      if (sw.checked == true) {
+        // event.preventDefault();
+        const url = 'http://localhost:3000/availabilities';
+        fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ date: valeur })
+        })
+          .then(response = console.log(response.json()))
+          .then((data) => {
+            console.log(data);
+          })
+        // active link
+      } else {
+        // destroy
+        const id = sw.dataset.id;
+        const urll = `http://localhost:3000/availabilities/${id}`;
+        fetch(urll, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+        })
+          .then(response = response.json())
+          .then((data) => {
+            console.log(data);
+          })
+        // disable link
+      }
+    });
+  });
+}
 
-export { horaire };
+export { horaire, crea };

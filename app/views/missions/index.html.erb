@@ -1,10 +1,15 @@
 <div class="container">
+  <h3>Missions disponibles</h3>
+
     <% @missions.each do |mission| %>
-      <%= link_to mission_bookings_path(mission), method: :post do %>
-        <div class="mission-card">
-          <div class="mission-card-name">service <%= mission.service.name %></div>
-          <div class="mission-card-date"><%= mission.date %></div>
-          <div class="mission-card-description"><%= mission.description %></div>
+      <%= link_to mission_bookings_path(mission), class: "blog-card", method: :post do %>
+        <div class="meta">
+          <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+        </div>
+        <div class="description my-3">
+          <h1><%= mission.date %></h1>
+          <h2>service <%= mission.service.name %></h2>
+          <h3><%= mission.description %></h3>
         </div>
       <% end %>
   <% end %>

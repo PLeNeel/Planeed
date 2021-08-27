@@ -1,9 +1,23 @@
 <div class="container">
-  <% render html: 'navbar' %>
+<%= image_tag "medical.png", class:"img_bg"%>
+  <div class="blog-card">
+    <%= link_to "Mes disponibilités", availabilities_path,  class: "description"  %>
+  </div>
 
+  <div class="blog-card">
+    <%= link_to "Mes Missions", bookings_path, class: "description" %>
+  </div>
+
+  <div class="blog-card">
+    <%= link_to "Missions disponibles", "missions", class: "description" %>
+  </div>
+
+<<<<<<< HEAD
   <%= link_to "Dispo", availabilities_path,  class: "availabilities_home_btn"  %>
   <%= link_to "Mes missions", "bookings", class: "home-btns home-btns-a" %>
   <%= link_to "Missions disponibles", "missions", class: "home-btns home-btns-b" %>
   <%= image_tag "Planeed_logo.jpg", class: "home-btns home-btns-d"%>
+=======
+>>>>>>> master
 
 </div>

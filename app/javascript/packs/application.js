@@ -25,7 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { horaire } from "../channels/availability";
-//import { crea } from "../channels/availability";
+import { crea } from "../channels/availability";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
