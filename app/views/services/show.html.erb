@@ -1,65 +1,56 @@
-<div class="container_service">
-  <div class="column_flex">
-    <div class="card_services">
-      <h1>Service D'<%= @service.name %></h1>
-      <img src="https://www.fillmurray.com/60/60" alt="steve">
+<div class="container">
+    <div class="blog-card mb-5">
+      <div class="description title">
+        <h1>Service <%= @service.name.capitalize %></h1>
+      </div>
     </div>
 
-    <div id="accordion">
+    <div id="accordion" class="accordion">
     <%# div card Numéro Important  %>
-        <div class="card">
-          <button class="card_service_phone collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        <div class="card mb-3" style="border-radius: 10px">
+          <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
           <h1>Numéros Important</h1>
           </button>
           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+             <%= @service.phone_number %>
             </div>
           </div>
         </div>
 
     <%# div card Journée type  %>
-        <div class="card">
+        <div class="card mb-3" style="border-radius: 10px">
           <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           <h1>Journée Type</h1>
           </button>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              <%= @service.typical_workday %>
             </div>
           </div>
         </div>
 
-    <%# div card Pathologie prévalentes  %>
-        <div class="card">
-          <button class="card_service_pathology collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          <h1>Pathologie prevalentes</h1>
+    <%# div card Pathologies prévalentes  %>
+        <div class="card mb-3" style="border-radius: 10px">
+          <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <h1>Pathologies prevalentes</h1>
           </button>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              <%= @service.predominant_disease %>
             </div>
           </div>
         </div>
 
     <%# div card Medicaments prévalents  %>
-        <div class="card">
-          <button class="card_service_pathology collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        <div class="card mb-3" style="border-radius: 10px">
+          <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
           <h1>Medicaments prevalents</h1>
           </button>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
             <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            <%= @service.predominant_drugs %>
             </div>
           </div>
         </div>
     </div>
-
-
-        <div class="card_service_toxics">
-        <h1>Gestion Toxiques</h1>
-        </div>
-
-
-  </div>
-</div>

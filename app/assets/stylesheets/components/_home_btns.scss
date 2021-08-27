@@ -10,6 +10,10 @@
   color: black;
   text-align: center;
   line-height: 108px;
+  &:hover { text-decoration: none; color: #101010;}
+  &:focus { text-decoration: none; color: #101010;}
+  &:active { text-decoration: none; color: #101010;}
+  &:visited { text-decoration: none; color: #101010;}
 }
 
 .home-btns-a {

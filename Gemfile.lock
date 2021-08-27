@@ -92,6 +92,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-french (1.0.2)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
@@ -247,6 +248,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  devise-french (~> 1.0, >= 1.0.2)
   dotenv-rails
   faker!
   font-awesome-sass
