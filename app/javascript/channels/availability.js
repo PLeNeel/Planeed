@@ -101,11 +101,16 @@ const crea = () => {
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({ date: valeur })
         })
-          .then(response = console.log(response.json()))
+          .then(response = response.json())
           .then((data) => {
-            console.log(data);
+           console.log("coco");
+           data = JSON.parse(data);
+           console.log(data);
           })
         // active link
+
+
+
       } else {
         // destroy
         const id = sw.dataset.id;

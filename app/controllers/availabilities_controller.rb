@@ -11,12 +11,13 @@ class AvailabilitiesController < ApplicationController
     # @avai = Availability.where()
     @availability = Availability.new(availability_params)
     @availability.user = current_user
-    if @availability.save
-      render json: @availability
-      # redirect_to availabilities_path
-    else
-      render new
+    @availability.save
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: {availability: @availability} }
     end
+
+
   end
 
   def destroy
