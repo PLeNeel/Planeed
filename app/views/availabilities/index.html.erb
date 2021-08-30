@@ -3,17 +3,17 @@
 <%= image_tag "eventtt.png", class:"image_bg"%>
 </div>
 <% (0..6).each do |av| %>
-  <div class="card-planning mx-2">
-  <%# <%= link_to 'Missions', new_availability_booking_path, class:"btn btn-primary"%>
-  <%# <%= link_to_if availability_id != "", "", new_availability_booking_path, class: "dropdown-item" %>
-    <div class="card-planning-text">
-      <p class='day'></p>
+  <a href=<%= missions_path %> >
+    <div class="card-planning mx-2">
+      <div class="card-planning-text">
+        <p class='day'></p>
+      </div>
+      <div>
+        <label class="switch">
+          <input type="checkbox" id="checkbox" data-id="<%= @availability.id %>">
+          <span class="slider round"></span>
+        </label>
+      </div>
     </div>
-    <div>
-      <label class="switch">
-        <input type="checkbox" id="checkbox" data-id="<%= @availability.id %>">
-        <span class="slider round"></span>
-      </label>
-    </div>
-  </div>
+  </a>
 <% end %>
