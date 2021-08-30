@@ -1,6 +1,6 @@
 <%= image_tag "medical.png", class:"img_bg"%>
+<div class="container" id="homepage">
 
-<div class="container">
   <div class="blog-card">
     <i class="far fa-calendar-alt" id="logo"></i>
     <%= link_to "Mes disponibilités", availabilities_path,  class: "description"  %>
@@ -14,14 +14,5 @@
   <div class="blog-card">
     <i class="fas fa-clipboard-check" id="logo"></i>
     <%= link_to "Missions disponibles", "missions", class: "description" %>
-  </div>
-</div>
-
-<div class="footer">
-  <div class="footer-links">
-    <a href=<%= root_path %>><i class="fas fa-home"></i></a>
-    <a href=<%=  %>><i class="fas fa-book-medical"></i></a>
-    <a href=<%= missions_path %>><i class="fas fa-comment-dots"></i></a>
-    <a href=<%= edit_user_registration_path %>><i class="fas fa-user-md"></i></a>
   </div>
 </div>
