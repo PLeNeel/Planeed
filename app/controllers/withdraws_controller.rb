@@ -1,19 +1,20 @@
 class WithdrawsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def new
     @withdraw = Withdraw.new
   end
 
   def create
     @withdraw = Withdraw.new(withdraw_params)
-    @user = User.find(:user_id)
-    @toxic = Toxic.find(:toxic_id)
+    @user = current_user
+    # @toxic = Toxic.find(:toxic_id)
     @withdraw.user_id = @user
-    @withdraw.toxic_id = @toxic
+    # @withdraw.toxic_id = @toxic
     @withdraw.save
-    if @withdraw.save
-      redirect_to toxics_path(@withdraw)
-    else
-      render new
+    respond_to do |format|
+      format.html
+      format.json
     end
   end
 

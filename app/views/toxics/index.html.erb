@@ -2,16 +2,18 @@
   <h1>Service <%= @service.name %></h1>
   <% @toxics.each do |toxic| %>
     <div class="toxic-card">
-      <div class="toxic_name"><%= toxic.name %>
-        <div class="toxic_tq"><i>stock max: <%= toxic.total_quantity %></i></div>
+      <div class="toxic-name" data-toxicName="<%= toxic.name %>">
+        <%= toxic.name %>
+        <div class="toxic-tq">
+          <i>stock max: <%= toxic.total_quantity %></i>
+        </div>
       </div>
-      <div class="toxic_ct">
+      <div class="toxic-ct">
         <%= toxic.current_quantity %>
       </div>
-      <div class="withdraw-btn">
-
+      <div class="withdraw-btns">
+        <input type="image" src="images/minus_sign.png" class="withdraw-btn" id="minus-btn" data-id="<%= toxic.id %>">
       </div>
-
     </div>
   <% end %>
 </div>
