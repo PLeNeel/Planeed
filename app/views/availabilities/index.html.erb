@@ -1,6 +1,7 @@
-<%= image_tag "eventtt.png", class:"image_bg"%>
+
+<%= image_tag "planning.png", class:"img_bg"%>
 <div class="container">
-<h1> Mon Planning </h1>
+  <h1> Mon Planning </h1>
 <% (0..6).each do |av| %>
   <a href=<%= missions_path %> id="a_availabilities">
     <div class="card-planning">
@@ -9,6 +10,7 @@
   </a>
       </div>
       <div>
+
         <label class="switch">
           <input type="checkbox" id="checkbox" data-id="<%= @availability.id %>">
           <span class="slider round"></span>
