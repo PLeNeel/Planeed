@@ -9,12 +9,12 @@ class WithdrawsController < ApplicationController
     @withdraw = Withdraw.new(withdraw_params)
     @user = current_user
     # @toxic = Toxic.find(:toxic_id)
-    @withdraw.user_id = @user
+    @withdraw.user = @user
     # @withdraw.toxic_id = @toxic
-    @withdraw.save
+    @withdraw.save!
     respond_to do |format|
       format.html
-      format.json
+      format.json { render json: @withdraw }
     end
   end
 

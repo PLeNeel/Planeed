@@ -4,7 +4,8 @@ const withdraw = () => {
   const minus = document.querySelectorAll('#minus-btn')
   minus.forEach((card) => {
     const  toxicId = card.dataset.id
-    console.log(toxicId)
+    // console.log(toxicId)
+    let response = ""
     card.addEventListener(("click"), (event) => {
       const url = `http://localhost:3000/toxics/${toxicId}/withdraws`;
       fetch(url, {
@@ -15,7 +16,25 @@ const withdraw = () => {
         },
         body: JSON.stringify({ toxic_id: toxicId, quantity: 1})
       })
-        .then(response = response.json())
+        .then(response => response.json())
+        .then((data) => {
+
+        });
+    });
+    card.addEventListener(("click"), (event) => {
+      const url = `http://localhost:3000/toxics/${toxicId}`;
+      let newQuantity = card.dataset.quantity
+      newQuantity--
+      // console.log(newQuantity)
+      fetch(url, {
+        method: 'PATCH',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({current_quantity: newQuantity })
+      })
+        .then(response => response.json())
         .then((data) => {
           console.log(data);
         });
