@@ -1,6 +1,21 @@
-.container{
+
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+#homepage {
+  min-height: auto;
+}
+.container {
+   min-height:100vh;
+   position:relative;
+
+.footer{
+  margin-top:auto;
+}
   h3{
-    color: #2F87D9;
+    color: white;
     font-size: 20px;
     text-align: center;
     padding: 10px;
