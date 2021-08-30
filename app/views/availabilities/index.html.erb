@@ -1,12 +1,13 @@
+
 <%= image_tag "planning.png", class:"img_bg"%>
 <div class="container">
-<h1> Mon Planning </h1>
-</div>
+  <h1> Mon Planning </h1>
 <% (0..6).each do |av| %>
-  <a href=<%= missions_path %> >
-    <div class="card-planning mx-2">
+  <a href=<%= missions_path %> id="a_availabilities">
+    <div class="card-planning">
       <div class="card-planning-text">
         <p class='day'></p>
+  </a>
       </div>
       <div>
 
@@ -16,5 +17,5 @@
         </label>
       </div>
     </div>
-  </a>
 <% end %>
+</div>
