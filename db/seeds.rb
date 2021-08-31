@@ -1,4 +1,5 @@
 require 'faker'
+require 'date'
 
 # service model
 # t.string "name"
@@ -16,122 +17,70 @@ Availability.destroy_all
 puts "destroying missions"
 Mission.destroy_all
 
-puts "creating services and toxics"
-ortho = Service.create(
-  name: "Orthopédique",
-  phone_number: "06.33.33.33.33",
-  predominant_disease: " ",
-  typical_workday: "6h45 - 14h",
-  predominant_drugs: "morphine"
-)
-10.times do
-  initial_quantity = [10, 20, 30].sample
-  Toxic.create(
-    name: Faker::Lorem.word,
-    total_quantity: initial_quantity,
-    current_quantity: initial_quantity,
-    service_id: ortho.id
-  )
-end
+puts "creating services"
+service1 = Service.create(
+  name: "Chirurgie Orthopédique",
+  phone_number: "Anesthésiste du jour:,Dr Ducombs 05.45.34.34.34,Chirurgien du Rachis:,Dr Fabre  05.67.98.07.98,Chirurgien des membres inférieurs:,Dr Vital 05.67.56.76.16,Cadre de Santé :,Mme Genet  05.56.45.78.98,Réanimation: 05.34.54.34.18,Responsable plaie et cicatrisation:,Infirmière Maria :, 05.23.02.32.23",
+  predominant_disease:
+  "L’orthopédie est une spécialité chirurgicale qui permet de corriger les défauts de l’appareil locomoteur de nature congénitale ou acquise durant la croissance voire à l’âge adulte (os, articulations, muscles, tendons et nerfs). Elle comprend le traitement chirurgical des affections des membres supérieurs (épaule, coude et main), des membres inférieurs (hanche, genou, cheville et pied) et du rachis.
+  Les patients sont admis dans le cadre d’une activité de chirurgie programmée après une consultation externe. ",
+  typical_workday:
+  "- Transmissions orales et écrites avec l’équipe de nuit,
+- Préparation du premier tour, vérification des dossiers de bloc, prémédications
 
-cardio = Service.create(
-  name: "cardiologique",
-  phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
-  predominant_disease: "coronaropathie",
-  typical_workday: "6h45 - 14h",
-  predominant_drugs: "antiarythmiques"
-)
-10.times do
-  initial_quantity = [10, 20, 30].sample
-  Toxic.create(
-    name: Faker::Lorem.word,
-    total_quantity: initial_quantity,
-    current_quantity: initial_quantity,
-    service_id: cardio.id
-  )
-end
-geria = Service.create(
-  name: "gériatrique",
-  phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
-  predominant_disease: "maladie d'Alzheimer",
-  typical_workday: "6h45 - 14h",
-  predominant_drugs: "Donépézil"
-)
+- Pendant le premier tour:
+    - Bilans sanguins
+    - Dextro si patients diabétiques
+    - Prise de constantes: Saturation, Tension artérielle, Température,
+    - Prise des traitements, surveillance des perfusions, évaluation de la douleur, surveillance orthopédique, surveillance pansement
 
-10.times do
-  initial_quantity = [10, 20, 30].sample
-  Toxic.create(
-    name: Faker::Lorem.word,
-    total_quantity: initial_quantity,
-    current_quantity: initial_quantity,
-    service_id: geria.id
-  )
-end
-urge = Service.create(
-  name: "des urgences",
-  phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
-  predominant_disease: "fractures",
-  typical_workday: "6h45 - 14h",
-  predominant_drugs: "anti-douleurs"
-)
-10.times do
-  initial_quantity = [10, 20, 30].sample
-  Toxic.create(
-    name: Faker::Lorem.word,
-    total_quantity: initial_quantity,
-    current_quantity: initial_quantity,
-    service_id: urge.id
-  )
-end
-uro = Service.create(
-  name: "urologique",
-  phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
-  predominant_disease: "inflamation",
-  typical_workday: "6h45 - 14h",
-  predominant_drugs: "antibiotique"
-)
-10.times do
-  initial_quantity = [10, 20, 30].sample
-  Toxic.create(
-    name: Faker::Lorem.word,
-    total_quantity: initial_quantity,
-    current_quantity: initial_quantity,
-    service_id: uro.id
-  )
-end
-soins = Service.create(
-  name: "des soins intensifs",
-  phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
-  predominant_disease: "brûlures",
-  typical_workday: "6h45 - 14h",
-  predominant_drugs: "Cortisone"
-)
-10.times do
-  initial_quantity = [10, 20, 30].sample
-  Toxic.create(
-    name: Faker::Lorem.word,
-    total_quantity: initial_quantity,
-    current_quantity: initial_quantity,
-    service_id: soins.id
-  )
-end
-gastro = Service.create(
-  name: "gastrologique",
-  phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
-  predominant_disease: "cancer",
-  typical_workday: "6h45 - 14h",
-  predominant_drugs: "Trastuzumab"
-)
-10.times do
-  initial_quantity = [10, 20, 30].sample
-  Toxic.create(
-    name: Faker::Lorem.word,
-    total_quantity: initial_quantity,
-    current_quantity: initial_quantity,
-    service_id: gastro.id
-  )
-end
-puts "#{Service.count} services with #{Toxic.count} toxics created"
+Toilettes en collaboration avec les aides-soignantes
+Réfection des pansements selon protocole
+Transmissions écrites
+
+    - Deuxième tour:
+        - Prise de constantes: Saturation, Tension artérielle, Température,
+        - Prise des traitements, surveillance des perfusions, évaluation de la douleur, surveillance orthopédique, surveillance pansement
+        - Surveillance des retours de bloc
+        - Dextro si patients diabétiques
+Vérification des résultats des bilans sanguins
+Transmissions écrites et orales avec l’équipe suivantes",
+  predominant_drugs:
+  "
+- Anti-inflammatoires
+- Antalgiques (palier I, II, III, per os ou IV, PCA pour morphine, gaz)
+- Anticoagulants (injection S/C  à titre curatif en relai d’un AVK ou préventif post opératoire ou patient alités)
+- Antibiotiques")
+
+# Service.create(
+#   name: "des urgences",
+#   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
+#   predominant_disease: "fractures",
+#   typical_workday: "6h45 - 14h",
+#   predominant_drugs: "anti-douleurs"
+# )
+# Service.create(
+#   name: "urologique",
+#   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
+#   predominant_disease: "inflamation",
+#   typical_workday: "6h45 - 14h",
+#   predominant_drugs: "antibiotique"
+# )
+# Service.create(
+#   name: "des soins intensifs",
+#   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
+#   predominant_disease: "brulures",
+#   typical_workday: "6h45 - 14h",
+#   predominant_drugs: "Cortisone"
+# )
+# Service.create(
+#   name: "gastrologie",
+#   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
+#   predominant_disease: "cancer",
+#   typical_workday: "6h45 - 14h",
+#   predominant_drugs: "Trastuzumab"
+# )
+puts "#{Service.count} service created"
 
 # User model
 # t.string "first_name"
@@ -146,15 +95,15 @@ puts "#{Service.count} services with #{Toxic.count} toxics created"
 
 puts "creating users"
 User.create(
-  first_name: "Aymeric",
-  last_name: "Maille",
+  first_name: "Mathilde",
+  last_name: "Sempéré",
   password: "123123",
-  experience: "20ans de service",
-  speciality: "orthopédie",
+  experience: " 8 ans de service ",
+  speciality: " Chirurgie Orthopédique ",
   phone_number: "06.33.33.33.33",
   address: "107 rue Stuttenberg, Bordeaux",
-  email: "giorgio@gmail.com",
-  service_admin: "orthopédie",
+  email: "mathilde-sempere@hotmail.fr",
+  service_admin: "Orthopédie",
   admin: true,
   service: Service.first
 )
@@ -164,7 +113,7 @@ User.create(
     last_name: Faker::Name.last_name,
     password: "000000",
     experience: "#{(1..30).to_a.sample}ans de service",
-    speciality: %w[orthopédie cardiologie gériatrie urgences urologie soins-intensifs gastrologie].sample,
+    speciality: %w[Chirurgie Orthopédique],
     phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
     address: Faker::Address.full_address,
     email: Faker::Internet.email,
@@ -200,13 +149,11 @@ puts "#{Availability.count} availabilities created"
 # t.index ["service_id"], name: "index_missions_on_service_id"
 puts "creating missions"
 
-100.times do
-  service = Service.all.sample
-  Mission.create!(
-    date: Faker::Date.between(from: Date.today, to: 2.month.from_now),
-    description: "renforts demandés au service #{service.name}",
-    service_id: service.id
-  )
-end
+Mission.create!(
+  date: Date.new(2021,9,2),
+  description: "renforts demandés",
+  service: service1
+)
+
 
 puts "#{Mission.count} missions created"

@@ -1,6 +1,7 @@
 class MissionsController < ApplicationController
 
   def index
+    @missions = Mission.all
     if params[:availability_id].nil?
       missions_from_dashboard
     else
