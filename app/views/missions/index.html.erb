@@ -1,17 +1,28 @@
-<%= image_tag "mesmissions.png", class:"img_bg "%>
+<%= image_tag "mesmissions.png", class:"img_bg"%>
 <div class="container">
   <h3>Missions disponibles</h3>
+    <div class="booking">
+      <% @missions.each do |mission| %>
+        <div class= "blog-booking" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <div class="meta">
+            <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+          </div>
+          <div class="booking_card">
+            <h1><%= mission.date %></h1>
+            <h2>service <%= mission.service.name %></h2>
+          </div>
+        <% end %>
+    </div>
 
-    <% @missions.each do |mission| %>
-      <%= link_to mission_bookings_path(mission), class: "blog-card", method: :post do %>
-        <div class="meta">
-          <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
-        </div>
-        <div class="description my-3">
-          <h1><%= mission.date %></h1>
-          <h2>service <%= mission.service.name %></h2>
-          <h3><%= mission.description %></h3>
-        </div>
-      <% end %>
-  <% end %>
+
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        <% @missions.each do |mission| %>
+          <%= link_to mission_bookings_path(mission), class: "btn_confirm", method: :post do %>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+
 </div>
