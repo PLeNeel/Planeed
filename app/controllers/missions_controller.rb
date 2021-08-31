@@ -9,6 +9,20 @@ class MissionsController < ApplicationController
     end
   end
 
+  def new
+    @mission = Mission.new
+  end
+
+  def create
+    @mission = Mission.new(mission_params)
+    @mission.service = Service.find(current_user.service_id)
+    if @mission.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   private
 
   def missions_from_dashboard
@@ -18,5 +32,9 @@ class MissionsController < ApplicationController
         @missions.push(mission)
       end
     end
+  end
+
+  def mission_params
+    params.require(:mission).permit(:service_id, :date, :description)
   end
 end
