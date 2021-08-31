@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="description title my-3">
+    <h1>Service <%= @service.name.capitalize %></h1>
+  </div>
+  <%= simple_form_for @service do |f| %>
+    <%= f.input :phone_number %>
+    <%= f.input :predominant_disease %>
+    <%= f.input :typical_workday %>
+    <%= f.input :predominant_drugs %>
+    <%= f.submit "Actualiser", class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Service <%= @service.name %></h1>
+  <% @toxics.each do |toxic| %>
+    <div class="toxic-card">
+      <div class="toxic-name" data-toxicName="<%= toxic.name %>">
+        <%= toxic.name %>
+        <div class="toxic-tq">
+          <i>stock max: <%= toxic.total_quantity %></i>
+        </div>
+      </div>
+      <div class="toxic-ct" data-turbolinks-permanent>
+        <%= toxic.current_quantity %>
+      </div>
+      <div class="withdraw-btns">
+        <input type="image" src="images/minus_sign.png" class="withdraw-btn" id="minus-btn" data-id="<%= toxic.id %>" data-quantity="<%= toxic.current_quantity %>">
+      </div>
+    </div>
+  <% end %>
+</div>

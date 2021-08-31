@@ -1,18 +1,21 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.where(user_id: current_user.id)
-    @bookings.each do |booking|
-      @books << booking if booking.progress == "Validé"
-      @books_futur << booking if booking.progress == "Venir"
-      @books_passé << booking if booking.progress == "Passé"
+    if current_user.admin == false
+      @bookings = Booking.where(user_id: current_user.id)
+      @bookings.each do |booking|
+        @books << booking if booking.progress == "Validé"
+        @books_futur << booking if booking.progress == "Venir"
+        @books_passé << booking if booking.progress == "Passé"
+      end
+      return {
+        now: @books,
+        futur: @books_futur,
+        past: @books_passé
+      }
+    else
+      @bookings = Booking.where(progress: "En attente")
     end
-
-    return {
-      now: @books,
-      futur: @books_futur,
-      past: @books_passé
-    }
   end
 
   def create
@@ -26,9 +29,25 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to booking_path(@booking)
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path
+  end
+
   private
 
-  # def mission_params
-  #   params.require(:mission).permit(:mission_id)
-  # end
+  def booking_params
+    params.require(:booking).permit(:booking_id, :progress, :user_id)
+  end
 end

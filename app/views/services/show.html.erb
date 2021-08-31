@@ -58,4 +58,16 @@
           </div>
         </div>
     </div>
+    <%= link_to service_toxics_path(@service.id), class: "blog-card" do %>
+      <div class="description">
+        <h1>Gestion Toxiques</h1>
+      </div>
+    <% end %>
+  <% if current_user.admin == true %>
+    <%= link_to edit_service_path(@service), class: "blog-card" do %>
+      <div class="description">
+        <h1>Editer</h1>
+      </div>
+    <% end %>
+  <% end %>
 </div>

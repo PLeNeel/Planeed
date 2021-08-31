@@ -131,7 +131,7 @@ puts "#{User.count} user created"
 # t.datetime "updated_at", precision: 6, null: false
 # t.index ["user_id"], name: "index_availabilities_on_user_id"
 puts "creating availabilities"
-100.times do
+200.times do
   Availability.create(
     date: Faker::Date.between(from: Date.today, to: 2.month.from_now),
     user_id: User.all.sample.id

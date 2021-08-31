@@ -9,16 +9,16 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
     resources :missions, only: [:index]
   end
-  resources :missions, only: [] do
+  resources :missions, only: [:new, :create] do
     resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:index]
-  resources :services, only: [:show] do
+  resources :bookings, only: [:index, :edit, :update, :destroy]
+  resources :services, only: [:show, :edit, :update] do
     resources :messages, only: [:create, :destroy]
     resources :toxics, only: [:index]
   end
-  resources :toxics, only: [] do
-    resources :withdraws, only: [:create, :new]
+  resources :toxics, only: [:update] do
+    resources :withdraws, only: [:create]
   end
   resources :missions, only: [:index]
 
