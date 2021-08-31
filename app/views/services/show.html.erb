@@ -51,21 +51,11 @@
             </div>
           </div>
         </div>
-    </div>
-    <%= link_to service_toxics_path(@service.id), class: "blog-card" do%>
-      <div class="description">
-        <h1>Gestion Toxiques</h1>
-      </div>
-    <% end %>
-
-
+    </div class="card mb-3" style="border-radius: 10px">
+      <%= link_to service_toxics_path(@service.id), class: "blog-card" do%>
+        <div class="description">
+          <h1>Gestion Toxiques</h1>
+        </div>
+      <% end %>
   </div>
 </div>
-<div class="container">
-<div class="blog-card">
-        <div class="description">
-          <h1>Le test</h1>
-          <h2> Service </h2>
-        </div>
-        </div>
-        </div>

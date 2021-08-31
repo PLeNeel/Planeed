@@ -8,11 +8,16 @@
           <i>stock max: <%= toxic.total_quantity %></i>
         </div>
       </div>
-      <div class="toxic-ct" data-turbolinks-permanent>
+      <div class="toxic-ct">
         <%= toxic.current_quantity %>
       </div>
       <div class="withdraw-btns">
-        <input type="image" src="images/minus_sign.png" class="withdraw-btn" id="minus-btn" data-id="<%= toxic.id %>" data-quantity="<%= toxic.current_quantity %>">
+        <div id="minus-btn" data-id="<%= toxic.id %>" data-quantity="<%= toxic.current_quantity%>" data-withdrawId="<%= current_user.last_withdraw_for(toxic)&.id %>" data-operator="minus">
+            <%= image_tag "minus_sign.png", width: "50px"%>
+        </div>
+        <div id="plus-btn" data-id="<%= toxic.id %>" data-quantity="<%= toxic.current_quantity%>" data-withdrawId="<%= current_user.last_withdraw_for(toxic)&.id %>" data-operator="plus">
+            <%= image_tag "plus_sign.png", width: "50px"%>
+        </div>
       </div>
     </div>
   <% end %>

@@ -6,14 +6,14 @@ class ToxicsController < ApplicationController
     @toxics = Toxic.where(service_id: params[:service_id])
   end
 
-  def update
-    @toxic = Toxic.find(params[:id])
-    @toxic.update!(toxic_params)
-    respond_to do |format|
-      format.html
-      format.json { render json: @toxic }
-    end
-  end
+  # def update
+  #   @toxic = Toxic.find(params[:id])
+  #   @toxic.update!(toxic_params)
+  #   respond_to do |format|
+  #     format.html
+  #     format.json { render json: @toxic }
+  #   end
+  # end
 
   private
 
