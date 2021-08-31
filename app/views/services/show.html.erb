@@ -11,7 +11,13 @@
           </button>
           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
-             <%= @service.phone_number %>
+             <% @service.phone_number.split(",").each_with_index do |line, i| %>
+                  <% if i.even? %>
+                    <p><strong><%= line %></strong></p>
+                  <% else %>
+                    <p><%= line %></p>
+                  <% end %>
+             <% end %>
             </div>
           </div>
         </div>
