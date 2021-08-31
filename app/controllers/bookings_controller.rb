@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
       @books_futur << booking if booking.progress == "Venir"
       @books_passé << booking if booking.progress == "Passé"
     end
-
     return {
       now: @books,
       futur: @books_futur,

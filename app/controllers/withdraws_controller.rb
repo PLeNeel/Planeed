@@ -7,40 +7,42 @@ class WithdrawsController < ApplicationController
 
   def create
     @toxic = Toxic.find(params[:toxic_id])
+    @operator = params[:operator]
     if @toxic.total_quantity == @toxic.current_quantity
-      brand_new_minus_action
+      brand_new_minus_action(@operator, @toxic)
     elsif @toxic.current_quantity.zero?
-      render "toxics"
+      # not working, à checker
+      # redirect_to service_toxics_path(@toxic.service_id), notice: "stock épuisé, veuillez contacter le responsable du réapprovisionnement"
     else
-      update_minus_action
+      update_action(@operator, @toxic)
     end
   end
 
   private
 
-  def brand_new_minus_action
-    @toxic.update(current_quantity: params[:current_quantity])
+  def brand_new_minus_action(operator, toxic)
+    add_or_withdraw_toxics(operator, toxic)
     @withdraw = Withdraw.new(withdraw_params)
     @withdraw.user = current_user
     @withdraw.toxic = @toxic
     @withdraw.save
     respond_to do |format|
       format.html
-      # format.json { render json: @withdraw }
-      format.json { render json: { withdraw: @withdraw, toxic: @toxic } }
+      format.text
+      format.json { render partial: "toxics/toxics_btn", locals: {toxic: @toxic, last_withdraw_id: @last_withdraw_id}, formats: [:html] }
     end
   end
 
-  def update_minus_action
-    @toxic.update(current_quantity: params[:current_quantity])
+  def update_action(operator, toxic)
+    add_or_withdraw_toxics(operator, toxic)
     @withdraw = Withdraw.find(params[:withdraw_id])
-    add_or_withdraw(operator)
+    new_quantity = add_or_withdraw(operator)
     puts "nouvelle quantité #{@withdraw.quantity}"
     @withdraw.update(quantity: new_quantity)
     respond_to do |format|
       format.html
-      # format.json { render json: @withdraw }
-      format.json { render json: { withdraw: @withdraw, toxic: @toxic } }
+      format.text
+      format.json { render partial: "toxics/toxics_btn", locals: {toxic: @toxic, last_withdraw_id: @last_withdraw_id}, formats: [:html] }
     end
   end
 
@@ -53,6 +55,16 @@ class WithdrawsController < ApplicationController
       new_quantity -= 1
     end
     new_quantity
+  end
+
+  def add_or_withdraw_toxics(operator, toxic)
+    new_quantity = toxic.current_quantity
+    if operator == "minus"
+      new_quantity -= 1
+    else
+      new_quantity += 1
+    end
+    toxic.update!(current_quantity: new_quantity)
   end
 
   def withdraw_params

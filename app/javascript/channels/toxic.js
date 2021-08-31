@@ -1,16 +1,16 @@
+// probleme a regler, itération dans la partiale
+
 const withdraw = () => {
-  const toxicCard = document.querySelectorAll('.toxic-card');
   // console.log(toxicCard)
-  const minus = document.querySelectorAll('#minus-btn')
+  const minus = document.querySelectorAll('#minus-btn');
   minus.forEach((card) => {
+    const partial = document.getElementById('toxics_partial')
     const  toxicId = card.dataset.id
     // console.log(toxicId)
     const withdrawId = card.dataset.withdrawid
     // console.log(withdrawId)
-    let response = ""
+    const operator = card.dataset.operator
     card.addEventListener(("click"), (event) => {
-      let newQuantity = card.dataset.quantity
-      newQuantity--
       const url = `http://localhost:3000/toxics/${toxicId}/withdraws`;
       fetch(url, {
         method: 'POST',
@@ -18,15 +18,16 @@ const withdraw = () => {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ quantity: 1, current_quantity: newQuantity, toxic_id: toxicId, withdraw_id: withdrawId })
+        body: JSON.stringify({ quantity: 1, toxic_id: toxicId, withdraw_id: withdrawId, operator: operator })
       })
-        .then(response => response.json())
+        .then(response => response.text())
         .then((data) => {
-          console.log(data)
-
+          partial.innerHTML = data;
         });
     });
   });
+}
+
   //   card.addEventListener(("click"), (event) => {
   //     const url = `http://localhost:3000/toxics/${toxicId}`;
   //     let newQuantity = card.dataset.quantity
@@ -69,6 +70,5 @@ const withdraw = () => {
   //       });
   //   });
   // });
-}
 
 export { withdraw };
