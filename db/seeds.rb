@@ -18,9 +18,9 @@ Mission.destroy_all
 
 puts "creating services and toxics"
 ortho = Service.create(
-  name: "orthopédique",
+  name: "Orthopédique",
   phone_number: "06.33.33.33.33",
-  predominant_disease: "pieds cassés",
+  predominant_disease: " ",
   typical_workday: "6h45 - 14h",
   predominant_drugs: "morphine"
 )
