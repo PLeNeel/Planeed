@@ -1,15 +1,18 @@
 <%= image_tag "dispo.png", class:"img_bg"%>
 <div class="container">
   <h3> Mes Missions</h3>
-
+  <div class="booking">
   <% @bookings.each do |booking| %>
-    <%= link_to service_path(booking.mission.service), class: "blog-card" do %>
-        <div class="meta">
+    <%= link_to service_path(booking.mission.service), class: "blog-booking" do %>
+    <div class="meta">
           <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
         </div>
-        <div class="description">
+        <div class="booking_card">
           <h1>Le <%= booking.mission.date %></h1>
           <h2> Service : <%= booking.mission.service.name %></h2>
         </div>
     <% end %>
   <% end %>
+  </div>
+
+</div>
