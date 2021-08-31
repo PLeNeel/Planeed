@@ -1,9 +1,7 @@
 <div class="container">
-    <div class="blog-card mb-5">
-      <div class="description title">
+      <div class="description title my-3">
         <h1>Service <%= @service.name.capitalize %></h1>
       </div>
-    </div>
 
     <div id="accordion" class="accordion">
     <%# div card Numéro Important  %>
@@ -54,8 +52,6 @@
           </div>
         </div>
     </div>
-
-
     <%= link_to service_toxics_path(@service.id), class: "blog-card" do%>
       <div class="description">
         <h1>Gestion Toxiques</h1>

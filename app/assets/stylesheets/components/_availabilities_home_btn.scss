@@ -17,3 +17,10 @@
   &:active { text-decoration: none; color: #101010;}
   &:visited { text-decoration: none; color: #101010;}
 }
+
+.image_planning {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}

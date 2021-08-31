@@ -1,15 +1,18 @@
-<div class="container">
-<%= image_tag "medical.png", class:"img_bg"%>
+<%= image_tag "accueil.png", class:"img_bg"%>
+<div class="container" id="homepage">
+
   <div class="blog-card">
+    <i class="far fa-calendar-alt" id="logo"></i>
     <%= link_to "Mes disponibilités", availabilities_path,  class: "description"  %>
   </div>
 
   <div class="blog-card">
+    <i class="fas fa-clipboard-list" id="logo"></i>
     <%= link_to "Mes Missions", bookings_path, class: "description" %>
   </div>
 
   <div class="blog-card">
+    <i class="fas fa-clipboard-check" id="logo"></i>
     <%= link_to "Missions disponibles", "missions", class: "description" %>
   </div>
-
 </div>
