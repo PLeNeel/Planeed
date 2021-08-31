@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Se connecter</h2>
+  <h2>Se connecter à Planneed </h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
@@ -12,7 +12,7 @@
                   label: "Mot de passe",
                   required: false,
                   input_html: { autocomplete: "mot de passe" } %>
-      <%= f.input :remember_me, label: "se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
+      <%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
     </div>
 
     <div class="form-actions">
