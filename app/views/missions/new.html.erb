@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="description title my-3">
+    <h1>Nouvelle mission</h1>
+  </div>
+  <%= simple_form_for @mission do |f| %>
+    <%= f.input :date %>
+    <%= f.input :description %>
+    <%= f.submit "Créer", class: "btn btn-primary" %>
+  <% end %>
+</div>
