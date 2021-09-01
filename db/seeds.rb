@@ -21,6 +21,7 @@ puts "creating services"
 service1 = Service.create(
   name: "Chirurgie Orthopédique",
   phone_number: "Anesthésiste du jour:,Dr Ducombs 05.45.34.34.34,Chirurgien du Rachis:,Dr Fabre  05.67.98.07.98,Chirurgien des membres inférieurs:,Dr Vital 05.67.56.76.16,Cadre de Santé :,Mme Genet  05.56.45.78.98,Réanimation: 05.34.54.34.18,Responsable plaie et cicatrisation:,Infirmière Maria :, 05.23.02.32.23",
+
   predominant_disease:"L’orthopédie est une spécialité chirurgicale qui permet de corriger les défauts de l’appareil locomoteur de nature congénitale ou acquise durant la croissance voire à l’âge adulte (os, articulations, muscles, tendons et nerfs). Elle comprend le traitement chirurgical des affections des membres supérieurs (épaule, coude et main), des membres inférieurs (hanche, genou, cheville et pied) et du rachis.",
   typical_workday:"- Transmissions orales et écrites avec l’équipe de nuit,- Vérification des dossiers de bloc, prémédications,- Bilans sanguins,- Dextro si patients diabétiques,- Prise des constantes,- Surveillance des perfusions,- Evaluation de la douleur,- Toilettes en collaboration avec les aides-soignantes,- Réfection des pansements selon protocole,- Transmissions écrites et orales avec l’équipe suivantes",
   predominant_drugs:"- Anti-inflammatoires,- Antalgiques,- PCA de morphine,- Anticoagulants,- Antibiotiques")
@@ -75,9 +76,23 @@ User.create(
   speciality: " Chirurgie Orthopédique ",
   phone_number: "06.33.33.33.33",
   address: "107 rue Stuttenberg, Bordeaux",
-  email: "mathilde-sempere@hotmail.fr",
+  email: "mathilde-sempere@gmail.com",
   service_admin: "Orthopédie",
   admin: true,
+  service: Service.first
+)
+
+User.create(
+  first_name: "Justine",
+  last_name: "baroque",
+  password: "123123",
+  experience: " 2 ans de service ",
+  speciality: " Chirurgie Orthopédique ",
+  phone_number: "06.33.33.33.28",
+  address: "107 rue Stuttenberg, Bordeaux",
+  email: "justinebaroque@gmail.com",
+  service_admin: "Orthopédie",
+  admin: false,
   service: Service.first
 )
 30.times do
