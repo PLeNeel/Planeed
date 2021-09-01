@@ -119,12 +119,12 @@ puts "#{User.count} user created"
 # t.datetime "updated_at", precision: 6, null: false
 # t.index ["user_id"], name: "index_availabilities_on_user_id"
 puts "creating availabilities"
-100.times do
-  Availability.create(
-    date: Faker::Date.between(from: Date.today, to: 2.month.from_now),
-    user_id: User.all.sample.id
-  )
-end
+#100.times do
+#  Availability.create(
+#    date: Faker::Date.between(from: Date.today, to: 2.month.from_now),
+#    user_id: User.all.sample.id
+#  )
+#end
 
 puts "#{Availability.count} availabilities created"
 
@@ -137,9 +137,9 @@ puts "#{Availability.count} availabilities created"
 # t.index ["service_id"], name: "index_missions_on_service_id"
 puts "creating missions"
 
-Mission.create!(
-  date: Date.new(2021,9,2),
-  description: "renforts demandés",
-  service: service1
-)
-puts "#{Mission.count} missions created"
+#Mission.create!(
+#date: Date.new(2021,9,2),
+#  description: "renforts demandés",
+#  service: service1
+#)
+#puts "#{Mission.count} missions created"
