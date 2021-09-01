@@ -13,12 +13,12 @@ class BookingsController < ApplicationController
       #   futur: @books_futur,
       #   past: @books_passé
       # }
-      books = []
-      @bookings = Booking.where(user_id: current_user.id)
-      @bookings.each do |booking|
-        books << booking if booking.progress == "Validé"
+      @bookings = []
+      @books = Booking.where(user_id: current_user.id)
+      @books.each do |booking|
+        @bookings << booking if booking.progress == "Validé"
       end
-      return books
+      return @bookings
     else
       @bookings = Booking.where(progress: "En attente")
     end
