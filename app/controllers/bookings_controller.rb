@@ -22,6 +22,13 @@ class BookingsController < ApplicationController
     else
       @bookings = Booking.where(progress: "En attente")
     end
+
+    return {
+      now: @books,
+      futur: @books_futur,
+      past: @books_passé
+    }
+
   end
 
   def create

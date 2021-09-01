@@ -38,6 +38,7 @@
 
 .toxic-ct {
   height: 30px;
+  width: 35px;
   position: absolute;
   top: 0px;
   right: 60px;
@@ -55,13 +56,23 @@
   bottom: 0px;
 }
 
-.withdraw-btn {
+.minus-btn {
   display: inline-block;
-  width: 100%;
-  height: 100%;
-  padding: 30px 40px 30px 30px;
   margin: 5px;
-  background-position: center center;
-  background-size: cover;
+  margin-top: 30px;
   color: $color_yellow;
+}
+
+// #plus-btn {
+//   display: inline-block;
+//   margin: 5px;
+//   color: $color_yellow;
+// }
+
+.disable {
+  z-index: 0;
+}
+
+.enable {
+  z-index: 1;
 }

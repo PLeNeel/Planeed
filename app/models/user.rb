@@ -6,7 +6,11 @@ class User < ApplicationRecord
   belongs_to :service
   has_many :availabilities, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  has_many :withdraws
+  has_many :withdraws, dependent: :destroy
 
   validates :phone_number, :first_name, :last_name, :experience, :speciality, presence: true
+
+  def last_withdraw_for(toxic)
+    withdraws.where(toxic_id: toxic).last
+  end
 end
