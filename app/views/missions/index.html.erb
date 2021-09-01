@@ -12,10 +12,11 @@
           <h2>service <%= mission.service.name %></h2>
         </div>
       </div>
-        <div class="collapse" id="collapseExample <%= mission.id%>">
+        <div class="collapse" id="collapseExample <%= mission.id%>" style = "margin-top: -10px">
           <div class="card card-body">
                 <%= mission.description  %>
-                <%= link_to mission_bookings_path(mission), class: "btn btn-registration", method: :post do %>
+                <%= link_to mission_bookings_path(mission), class: "btn_confirm", method: :post do %>
+                <h4>Postuler</h4>
                 <% end %>
 
           </div>
