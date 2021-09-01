@@ -1,8 +1,15 @@
 <div class="footer">
   <div class="footer-links">
-    <a href=<%= root_path %>><i class="fas fa-home"></i></a>
-    <a href=<%= missions_path %>><i class="fas fa-book-medical"></i></a>
-    <a href=<%=  %>><i class="fas fa-comment-dots"></i></a>
-    <a href=<%= edit_user_registration_path %>><i class="fas fa-user-md"></i></a>
+    <% if current_user&.admin == false %>
+      <a href=<%= root_path %>><i class="fas fa-home"></i></a>
+      <a href=<%= missions_path %>><i class="fas fa-book-medical"></i></a>
+      <a href=<%=  %>><i class="fas fa-comment-dots"></i></a>
+      <a href=<%= edit_user_registration_path %>><i class="fas fa-user-md"></i></a>
+    <% else %>
+      <a href=<%= root_path %>><i class="fas fa-home"></i></a>
+      <a href=<%= bookings_path %>><i class="fas fa-clipboard-list"></i></a>
+      <a href=<%=  %>><i class="fas fa-comment-dots"></i></a>
+      <a href=<%= edit_user_registration_path %>><i class="fas fa-user-md"></i></a>
+    <% end %>
   </div>
 </div>
