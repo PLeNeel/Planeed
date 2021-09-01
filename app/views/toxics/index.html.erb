@@ -11,6 +11,14 @@
       <div id="toxics_partial<%= toxic.id %>">
         <%= render partial: "toxics_btn", locals: {toxic: toxic, last_withdraw_id: @last_withdraw_id} %>
       </div>
+      <div class="withdraw-btns">
+        <div class="minus-btn" data-id="<%= toxic.id %>" data-quantity="<%= toxic.current_quantity%>" data-withdrawId="<%= current_user.last_withdraw_for(toxic)&.id %>" data-operator="minus">
+            <%= image_tag "minus_sign.png", width: "50px"%>
+        </div>
+        <div class="minus-btn" data-id="<%= toxic.id %>" data-quantity="<%= toxic.current_quantity%>" data-withdrawId="<%= current_user.last_withdraw_for(toxic)&.id %>" data-operator="plus">
+            <%= image_tag "plus_sign.png", width: "50px"%>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

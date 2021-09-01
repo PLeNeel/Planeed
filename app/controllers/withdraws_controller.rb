@@ -37,7 +37,6 @@ class WithdrawsController < ApplicationController
     add_or_withdraw_toxics(operator, toxic)
     @withdraw = Withdraw.find(params[:withdraw_id])
     new_quantity = add_or_withdraw(operator)
-    puts "nouvelle quantité #{@withdraw.quantity}"
     @withdraw.update(quantity: new_quantity)
     @last_withdraw_id = Withdraw.last.id unless Withdraw.last.nil?
     respond_to do |format|

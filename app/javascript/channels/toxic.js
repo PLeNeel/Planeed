@@ -1,13 +1,13 @@
 // probleme a regler, itération dans la partiale
 
 const withdraw = () => {
-  console.log("salut")
   document.querySelectorAll('.minus-btn').forEach((button) => {
-    console.log("test")
     button.addEventListener(("click"), (event) => {
       const toxicId = button.dataset.id
-      const withdrawId = button.dataset.withdrawid
-      // console.log(withdrawId)
+      const withdrawidid = document.getElementById(`toxic-ct${toxicId}`)
+      console.log(withdrawidid)
+      const withdrawId = withdrawidid.dataset.lastwithdrawid
+      console.log(withdrawId)
       const operator = button.dataset.operator
       const url = `http://localhost:3000/toxics/${toxicId}/withdraws`;
       fetch(url, {
