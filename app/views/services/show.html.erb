@@ -29,7 +29,13 @@
           </button>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-              <%= @service.typical_workday %>
+              <%= @service.typical_workday.split(",").each_with_index do |line, i|%>
+                  <% if i.even? %>
+                    <p><%= line %></p>
+                  <% else %>
+                    <p><%= line %></p>
+                  <% end %>
+             <% end %>
             </div>
           </div>
         </div>
@@ -53,14 +59,19 @@
           </button>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
             <div class="card-body">
-            <%= @service.predominant_drugs %>
+                 <%= @service.predominant_drugs.split(",").each_with_index do |line, i|%>
+                  <% if i.even? %>
+                    <p><%= line %></p>
+                  <% else %>
+                    <p><%= line %></p>
+                  <% end %>
+             <% end %>
             </div>
           </div>
         </div>
-    </div>
     <%= link_to service_toxics_path(@service.id), class: "blog-card" do %>
       <div class="description">
-        <h1>Gestion Toxiques</h1>
+        <h1>Gestion des Toxiques</h1>
       </div>
     <% end %>
   <% if current_user.admin == true %>

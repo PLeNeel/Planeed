@@ -21,35 +21,21 @@ puts "creating services"
 service1 = Service.create(
   name: "Chirurgie Orthopédique",
   phone_number: "Anesthésiste du jour:,Dr Ducombs 05.45.34.34.34,Chirurgien du Rachis:,Dr Fabre  05.67.98.07.98,Chirurgien des membres inférieurs:,Dr Vital 05.67.56.76.16,Cadre de Santé :,Mme Genet  05.56.45.78.98,Réanimation: 05.34.54.34.18,Responsable plaie et cicatrisation:,Infirmière Maria :, 05.23.02.32.23",
-  predominant_disease:
-  "L’orthopédie est une spécialité chirurgicale qui permet de corriger les défauts de l’appareil locomoteur de nature congénitale ou acquise durant la croissance voire à l’âge adulte (os, articulations, muscles, tendons et nerfs). Elle comprend le traitement chirurgical des affections des membres supérieurs (épaule, coude et main), des membres inférieurs (hanche, genou, cheville et pied) et du rachis.
-  Les patients sont admis dans le cadre d’une activité de chirurgie programmée après une consultation externe. ",
-  typical_workday:
-  "- Transmissions orales et écrites avec l’équipe de nuit,
-- Préparation du premier tour, vérification des dossiers de bloc, prémédications
-
-- Pendant le premier tour:
-    - Bilans sanguins
-    - Dextro si patients diabétiques
-    - Prise de constantes: Saturation, Tension artérielle, Température,
-    - Prise des traitements, surveillance des perfusions, évaluation de la douleur, surveillance orthopédique, surveillance pansement
-
-Toilettes en collaboration avec les aides-soignantes
-Réfection des pansements selon protocole
-Transmissions écrites
-
-    - Deuxième tour:
-        - Prise de constantes: Saturation, Tension artérielle, Température,
-        - Prise des traitements, surveillance des perfusions, évaluation de la douleur, surveillance orthopédique, surveillance pansement
-        - Surveillance des retours de bloc
-        - Dextro si patients diabétiques
-Vérification des résultats des bilans sanguins
-Transmissions écrites et orales avec l’équipe suivantes",
-  predominant_drugs:
-  "
-- Anti-inflammatoires
-- Antalgiques (palier I, II, III, per os ou IV, PCA pour morphine, gaz)
-- Anticoagulants (injection S/C  à titre curatif en relai d’un AVK ou préventif post opératoire ou patient alités)
+  predominant_disease:"L’orthopédie est une spécialité chirurgicale qui permet de corriger les défauts de l’appareil locomoteur de nature congénitale ou acquise durant la croissance voire à l’âge adulte (os, articulations, muscles, tendons et nerfs). Elle comprend le traitement chirurgical des affections des membres supérieurs (épaule, coude et main), des membres inférieurs (hanche, genou, cheville et pied) et du rachis.",
+  typical_workday:"- Transmissions orales et écrites avec l’équipe de nuit,
+- Vérification des dossiers de bloc, prémédications,
+- Bilans sanguins,
+- Dextro si patients diabétiques,
+- Prise des constantes,
+- Surveillance des perfusions,
+- Evaluation de la douleur,
+- Toilettes en collaboration avec les aides-soignantes,
+- Réfection des pansements selon protocole,
+- Transmissions écrites et orales avec l’équipe suivantes",
+  predominant_drugs:"- Anti-inflammatoires,
+- Antalgiques,
+- PCA de morphine,
+- Anticoagulants,
 - Antibiotiques")
 
 # Service.create(
@@ -131,7 +117,7 @@ puts "#{User.count} user created"
 # t.datetime "updated_at", precision: 6, null: false
 # t.index ["user_id"], name: "index_availabilities_on_user_id"
 puts "creating availabilities"
-200.times do
+100.times do
   Availability.create(
     date: Faker::Date.between(from: Date.today, to: 2.month.from_now),
     user_id: User.all.sample.id
