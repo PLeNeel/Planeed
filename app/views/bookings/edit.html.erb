@@ -1,0 +1,9 @@
+<h1>Présentation</h1>
+<p><%= @booking.user.first_name %></p>
+<p><%= @booking.user.last_name %></p>
+<p><%= @booking.user.experience %></p>
+<p><%= @booking.user.speciality %></p>
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :progress %>
+  <%= f.submit "Valider", class: "btn btn-primary" %>
+<% end %>
