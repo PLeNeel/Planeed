@@ -7,11 +7,17 @@
     <%# div card Numéro Important  %>
         <div class="card mb-3" style="border-radius: 10px">
           <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          <h1>Numéros Important</h1>
+          <h1>Numéros importants</h1>
           </button>
           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
-             <%= @service.phone_number %>
+             <% @service.phone_number.split(",").each_with_index do |line, i| %>
+                  <% if i.even? %>
+                    <p><strong><%= line %></strong></p>
+                  <% else %>
+                    <p><%= line %></p>
+                  <% end %>
+             <% end %>
             </div>
           </div>
         </div>
@@ -19,11 +25,17 @@
     <%# div card Journée type  %>
         <div class="card mb-3" style="border-radius: 10px">
           <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <h1>Journée Type</h1>
+          <h1> Journée type </h1>
           </button>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-              <%= @service.typical_workday %>
+              <%@service.typical_workday.split(",").each_with_index do |line, i|%>
+                  <% if i.even? %>
+                    <p><%= line %></p>
+                  <% else %>
+                    <p><%= line %></p>
+                  <% end %>
+             <% end %>
             </div>
           </div>
         </div>
@@ -31,7 +43,7 @@
     <%# div card Pathologies prévalentes  %>
         <div class="card mb-3" style="border-radius: 10px">
           <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          <h1>Pathologies prevalentes</h1>
+          <h1> Pathologies prévalentes</h1>
           </button>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body">
@@ -43,19 +55,32 @@
     <%# div card Medicaments prévalents  %>
         <div class="card mb-3" style="border-radius: 10px">
           <button class="card_service_day collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          <h1>Medicaments prevalents</h1>
+          <h1> Médicaments prévalents</h1>
           </button>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
             <div class="card-body">
-            <%= @service.predominant_drugs %>
+               <% @service.predominant_drugs.split(",").each_with_index do |line, i|%>
+                  <% if i.even? %>
+                    <p><%= line %></p>
+                  <% else %>
+                    <p><%= line %></p>
+             <% end %>
+            <% end %>
             </div>
           </div>
         </div>
-    </div class="card mb-3" style="border-radius: 10px">
-      <%= link_to service_toxics_path(@service.id), class: "blog-card" do%>
-        <div class="description">
-          <h1>Gestion Toxiques</h1>
-        </div>
-      <% end %>
+
+  <div class="card mb-3">
+    <%= link_to service_toxics_path(@service.id), class: "card_service_day" do %>
+        <h1>Gestion des Toxiques</h1>
+    <% end %>
+    </div>
+  <% if current_user.admin == true %>
+  <div class="card mb-3">
+    <%= link_to edit_service_path(@service), class: "card_service_day" do %>
+        <h1>Editer</h1>
+    <% end %>
   </div>
+  <% end %>
+</div>
 </div>

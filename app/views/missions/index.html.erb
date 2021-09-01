@@ -1,17 +1,25 @@
-<%= image_tag "mesmissions.png", class:"img_bg "%>
+<%= image_tag "mesmissions.png", class:"img_bg"%>
 <div class="container">
   <h3>Missions disponibles</h3>
-
+  <div class="booking">
     <% @missions.each do |mission| %>
-      <%= link_to mission_bookings_path(mission), class: "blog-card", method: :post do %>
+      <div class= "blog-booking" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         <div class="meta">
           <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
         </div>
-        <div class="description my-3">
+        <div class="booking_card">
           <h1><%= mission.date %></h1>
           <h2>service <%= mission.service.name %></h2>
-          <h3><%= mission.description %></h3>
+        </div>
+      </div>
+        <div class="collapse" id="collapseExample <%= mission.id%>">
+          <div class="card card-body">
+                <%= mission.description  %>
+                <%= link_to mission_bookings_path(mission), class: "btn btn-registration", method: :post do %>
+                <% end %>
+
+          </div>
         </div>
       <% end %>
-  <% end %>
+    </div>
 </div>

@@ -1,18 +1,34 @@
 <%= image_tag "accueil.png", class:"img_bg"%>
 <div class="container" id="homepage">
+  <% if current_user.admin == false %>
+    <div class="blog-card">
+      <i class="far fa-calendar-alt" id="logo"></i>
+      <%= link_to "Mes disponibilités", availabilities_path,  class: "description"  %>
+    </div>
 
-  <div class="blog-card">
-    <i class="far fa-calendar-alt" id="logo"></i>
-    <%= link_to "Mes disponibilités", availabilities_path,  class: "description"  %>
-  </div>
+    <div class="blog-card">
+      <i class="fas fa-clipboard-list" id="logo"></i>
+      <%= link_to "Mes Missions", bookings_path, class: "description" %>
+    </div>
 
-  <div class="blog-card">
-    <i class="fas fa-clipboard-list" id="logo"></i>
-    <%= link_to "Mes Missions", bookings_path, class: "description" %>
-  </div>
+    <div class="blog-card">
+      <i class="fas fa-clipboard-check" id="logo"></i>
+      <%= link_to "Missions disponibles", missions_path, class: "description" %>
+    </div>
+  <% else %>
+    <div class="blog-card">
+      <i class="fas fa-calendar-plus" id="logo"></i>
+      <%= link_to "Créer une mission", new_mission_path, class: "description" %>
+    </div>
 
-  <div class="blog-card">
-    <i class="fas fa-clipboard-check" id="logo"></i>
-    <%= link_to "Missions disponibles", "missions", class: "description" %>
-  </div>
+    <div class="blog-card">
+      <i class="fas fa-clipboard-list" id="logo"></i>
+      <%= link_to "Missions à valider", bookings_path, class: "description" %>
+    </div>
+
+    <div class="blog-card">
+      <i class="fas fa-book-medical" id="logo"></i>
+      <%= link_to "Mon service", service_path(current_user.service_id), class: "description" %>
+    </div>
+  <% end %>
 </div>

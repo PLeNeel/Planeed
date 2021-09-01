@@ -27,6 +27,7 @@ import "bootstrap";
 import { horaire } from "../channels/availability";
 import { crea } from "../channels/availability";
 import { withdraw } from "../channels/toxic";
+import { collapsed } from "../channels/collapse";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -37,4 +38,5 @@ document.addEventListener('turbolinks:load', () => {
   horaire();
   crea();
   withdraw();
+  collapsed();
 });
