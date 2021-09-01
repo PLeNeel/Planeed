@@ -69,16 +69,17 @@
             </div>
           </div>
         </div>
-    <%= link_to service_toxics_path(@service.id), class: "blog-card" do %>
-      <div class="description">
+  <div class="card mb-3">
+    <%= link_to service_toxics_path(@service.id), class: "card_service_day" do %>
         <h1>Gestion des Toxiques</h1>
-      </div>
     <% end %>
+    </div>
   <% if current_user.admin == true %>
-    <%= link_to edit_service_path(@service), class: "blog-card" do %>
-      <div class="description">
+  <div class="card mb-3">
+    <%= link_to edit_service_path(@service), class: "card_service_day" do %>
         <h1>Editer</h1>
-      </div>
     <% end %>
+  </div>
   <% end %>
+</div>
 </div>
