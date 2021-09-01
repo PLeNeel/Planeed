@@ -34,7 +34,7 @@ const horaire = () => {
       case 5:
         nameDay = "Samedi";
         break;
-      case 6:
+      case -1:
         nameDay = "Dimanche";
         break;
     }

@@ -3,7 +3,7 @@
     <h1>Nouvelle mission</h1>
   </div>
   <%= simple_form_for @mission do |f| %>
-    <%= f.input :date %>
+    <%= f.input :date, as: :date, html5: true %>
     <%= f.input :description %>
     <%= f.submit "Créer", class: "btn btn-primary" %>
   <% end %>
