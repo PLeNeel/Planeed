@@ -8,7 +8,7 @@
           <i>stock max: <%= toxic.total_quantity %></i>
         </div>
       </div>
-      <div id="toxics_partial">
+      <div id="toxics_partial<%= toxic.id %>">
         <%= render partial: "toxics_btn", locals: {toxic: toxic, last_withdraw_id: @last_withdraw_id} %>
       </div>
     </div>

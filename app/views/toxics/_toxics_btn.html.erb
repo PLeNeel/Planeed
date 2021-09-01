@@ -2,10 +2,10 @@
   <%= toxic.current_quantity %>
 </div>
 <div class="withdraw-btns">
-  <div id="minus-btn" data-id="<%= toxic.id %>" data-quantity="<%= toxic.current_quantity%>" data-withdrawId="<%= current_user.last_withdraw_for(toxic)&.id %>" data-operator="minus" data-lastWithdrawId="<%= last_withdraw_id %>">
+  <div class="minus-btn" data-id="<%= toxic.id %>" data-quantity="<%= toxic.current_quantity%>" data-withdrawId="<%= current_user.last_withdraw_for(toxic)&.id %>" data-operator="minus" data-lastWithdrawId="<%= last_withdraw_id %>">
       <%= image_tag "minus_sign.png", width: "50px"%>
   </div>
-  <div id="minus-btn" data-id="<%= toxic.id %>" data-quantity="<%= toxic.current_quantity%>" data-withdrawId="<%= current_user.last_withdraw_for(toxic)&.id %>" data-operator="plus" data-lastWithdrawId="<%= last_withdraw_id %>">
+  <div class="minus-btn" data-id="<%= toxic.id %>" data-quantity="<%= toxic.current_quantity%>" data-withdrawId="<%= current_user.last_withdraw_for(toxic)&.id %>" data-operator="plus" data-lastWithdrawId="<%= last_withdraw_id %>">
       <%= image_tag "plus_sign.png", width: "50px"%>
   </div>
 </div>

@@ -39,6 +39,7 @@ class WithdrawsController < ApplicationController
     new_quantity = add_or_withdraw(operator)
     puts "nouvelle quantité #{@withdraw.quantity}"
     @withdraw.update(quantity: new_quantity)
+    @last_withdraw_id = Withdraw.last.id unless Withdraw.last.nil?
     respond_to do |format|
       format.html
       format.text

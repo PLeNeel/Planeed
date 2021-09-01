@@ -1,16 +1,14 @@
 // probleme a regler, itération dans la partiale
 
 const withdraw = () => {
-  // console.log(toxicCard)
-  const minus = document.querySelectorAll('#minus-btn');
-  minus.forEach((card) => {
-    const partial = document.getElementById('toxics_partial')
-    const  toxicId = card.dataset.id
-    // console.log(toxicId)
-    const withdrawId = card.dataset.withdrawid
-    // console.log(withdrawId)
-    const operator = card.dataset.operator
-    card.addEventListener(("click"), (event) => {
+  console.log("salut")
+  document.querySelectorAll('.minus-btn').forEach((button) => {
+    console.log("test")
+    button.addEventListener(("click"), (event) => {
+      const toxicId = button.dataset.id
+      const withdrawId = button.dataset.withdrawid
+      // console.log(withdrawId)
+      const operator = button.dataset.operator
       const url = `http://localhost:3000/toxics/${toxicId}/withdraws`;
       fetch(url, {
         method: 'POST',
@@ -20,10 +18,11 @@ const withdraw = () => {
         },
         body: JSON.stringify({ quantity: 1, toxic_id: toxicId, withdraw_id: withdrawId, operator: operator })
       })
-        .then(response => response.text())
-        .then((data) => {
-          partial.innerHTML = data;
-        });
+      .then(response => response.text())
+      .then((data) => {
+        const partial = document.getElementById(`toxics_partial${toxicId}`)
+        partial.innerHTML = data;
+      });
     });
   });
 }
