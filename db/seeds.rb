@@ -143,3 +143,7 @@ Mission.create!(
   service: service1
 )
 puts "#{Mission.count} missions created"
+
+Toxic.create!(name:'coca', total_quantity: 2, current_quantity: 1, service: service1, barcode: '5000112558265')
+Toxic.create!(name:'gel hydroalcoolique', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3518646213007')
+Toxic.create!(name: 'sel', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3560071184971')

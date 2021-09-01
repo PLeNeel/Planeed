@@ -1,0 +1,9 @@
+<script src="https://cdn.jsdelivr.net/npm/scandit-sdk@5.x"></script>
+<div id="scandit-barcode-picker"></div>
+
+<div class="d-none">
+<%= simple_form_for :scan, url: scans_path, method: :post do |f| %>
+    <%= f.input :barcode %>
+    <%= f.submit  %>
+  <% end %>
+</div>
