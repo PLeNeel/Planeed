@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: 'users#show'
   get 'show/:id', to: 'users#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :toxics, only: [:update, :show] do
+    resources :withdraws, only: [:create]
+  end
 
   resources :availabilities, only: [:index, :new, :create, :destroy] do
     resources :bookings, only: [:new, :create]
@@ -23,9 +26,6 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:show, :create, :destroy] do
     resources :messages, only: :create
   end
-  resources :toxics, only: [:update] do
-    resources :withdraws, only: [:create]
-  end
   resources :missions, only: [:index]
-
+  resources :scans, only: [:new, :create]
 end

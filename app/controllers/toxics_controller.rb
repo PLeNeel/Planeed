@@ -7,6 +7,10 @@ class ToxicsController < ApplicationController
     @last_withdraw_id = Withdraw.last.id unless Withdraw.last.nil?
   end
 
+  def show
+    @toxic = Toxic.find(params[:id])
+  end
+
   # def update
   #   @toxic = Toxic.find(params[:id])
   #   @toxic.update!(toxic_params)
@@ -21,4 +25,5 @@ class ToxicsController < ApplicationController
   def toxic_params
     params.require(:toxic).permit(:service_id, :name, :total_quantity, :current_quantity)
   end
+
 end

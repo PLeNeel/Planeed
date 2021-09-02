@@ -7,14 +7,22 @@ class WithdrawsController < ApplicationController
 
   def create
     @toxic = Toxic.find(params[:toxic_id])
-    @operator = params[:operator]
-    if @toxic.total_quantity == @toxic.current_quantity
-      brand_new_minus_action(@operator, @toxic)
-    elsif @toxic.current_quantity.zero?
-      # not working, à checker
-      # redirect_to service_toxics_path(@toxic.service_id), notice: "stock épuisé, veuillez contacter le responsable du réapprovisionnement"
-    else
-      update_action(@operator, @toxic)
+
+    if params[:operator].present? # on vient du bouton
+      @operator = params[:operator]
+      if @toxic.total_quantity == @toxic.current_quantity
+        brand_new_minus_action(@operator, @toxic)
+      elsif @toxic.current_quantity.zero?
+        # not working, à checker
+        # redirect_to service_toxics_path(@toxic.service_id), notice: "stock épuisé, veuillez contacter le responsable du réapprovisionnement"
+      else
+        update_action(@operator, @toxic)
+      end
+    else #on vient du scan
+      @withdraw = Withdraw.create(toxic: @toxic, user: current_user)
+      @toxic.current_quantity -= 1
+      flash[:notice] = "Le toxique \'#{@toxic.name}\' a bien été retiré"
+      redirect_to new_scan_path
     end
   end
 
@@ -67,6 +75,6 @@ class WithdrawsController < ApplicationController
   end
 
   def withdraw_params
-    params.require(:withdraw).permit(:quantity, :toxic_id, :token, :user_id)
+    params.require(:withdraw).permit(:toxic_id)
   end
 end

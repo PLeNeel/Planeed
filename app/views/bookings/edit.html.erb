@@ -1,12 +1,17 @@
-<h1>Présentation</h1>
-
+<h1> Demande de missions</h1>
+<div class="container">
+<div class="image-container"><%= image_tag "justine.jpeg", class: "booking-avatar"%></div>
 <div class="cards-booking">
-  <p><%= @booking.user.first_name %></p>
-  <p><%= @booking.user.last_name %></p>
-  <p><%= @booking.user.experience %></p>
-  <p><%= @booking.user.speciality %></p>
+  <p class="background-white"> Nom: <%= @booking.user.last_name %></p>
+  <p class="background-white"> Prénom: <%= @booking.user.first_name %></p>
+  <p class="background-white"> Expérience: <%= @booking.user.experience %></p>
+  <p class="background-white"> Spécialité: <%= @booking.user.speciality %></p>
 </div>
+
+<div class="form-booking">
 <%= simple_form_for @booking do |f| %>
-  <%= f.input :progress %>
-  <%= f.submit "Valider", class: "btn btn-primary" %>
+  <%= f.input :progress, collection: ["Validé", "Refusé"], label: "Etat de la mission" %>
+  <%= f.submit "Confirmer", class: "btn btn-primary" %>
 <% end %>
+</div>
+</div>
