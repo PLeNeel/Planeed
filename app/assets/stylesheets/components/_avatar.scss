@@ -18,3 +18,20 @@
   height: 40px;
   border-radius: 50%;
 }
+
+.wrapper-notif{
+  position: relative;
+}
+
+.notif{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  background-color: red;
+  font-size: 20px;
+  text-align: center;
+}

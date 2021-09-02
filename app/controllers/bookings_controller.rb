@@ -17,6 +17,9 @@ class BookingsController < ApplicationController
       @books = Booking.where(user_id: current_user.id)
       @books.each do |booking|
         @bookings << booking if booking.progress == "Validé"
+        if booking.progress == "Validé"
+          booking.update(seen: true)
+        end
       end
       return @bookings
     else
