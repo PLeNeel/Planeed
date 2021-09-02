@@ -5,7 +5,7 @@
       <a href=<%= missions_path %>><i class="fas fa-book-medical"></i></a>
 
       <% if user_signed_in? %>
-        <a href=<%= service_chatroom_path(service_id: current_user.bookings.last.mission.service_id, id: current_user.bookings.last.mission.service.chatrooms.last.id) %>><i class="fas fa-comment-dots"></i></a>
+        <%# <a href=<%= service_chatroom_path(service_id: current_user.bookings.last.mission.service_id, id: current_user.bookings.last.mission.service.chatrooms.last.id) %>><i class="fas fa-comment-dots"></i></a> %>
       <% else %>
         <a href=<%=  %>><i class="fas fa-comment-dots"></i></a>
       <% end %>
@@ -15,7 +15,7 @@
       <a href=<%= root_path %>><i class="fas fa-home"></i></a>
       <a href=<%= bookings_path %>><i class="fas fa-clipboard-list"></i></a>
       <% if user_signed_in? %>
-        <a href=<%= service_chatroom_path(service_id: current_user.service_id, id: current_user.service.chatrooms.last.id) %>><i class="fas fa-comment-dots"></i></a>
+        <%# <a href=<%= service_chatroom_path(service_id: current_user.service_id, id: current_user.service.chatrooms.last.id) %>><i class="fas fa-comment-dots"></i></a> %>
       <% else %>
         <a href=<%=  %>><i class="fas fa-comment-dots"></i></a>
       <% end %>
