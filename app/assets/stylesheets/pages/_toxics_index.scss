@@ -60,7 +60,35 @@
   display: inline-block;
   margin: 5px;
   margin-top: 30px;
-  color: $color_yellow;
+  border-radius: 5px;
+}
+
+.invisible_plus {
+  display: inline-block;
+  position: absolute;
+  border: none;
+  width: 55px;
+  height: 55px;
+  right: 5px;
+  z-index: 5;
+  margin: 5px;
+  margin-top: 30px;
+  color: $color_blue;
+  background-color: $color_blue;
+}
+
+.invisible_minus {
+  display: inline-block;
+  position: absolute;
+  border: none;
+  width: 55px;
+  height: 55px;
+  right: 75px;
+  z-index: 5;
+  margin: 5px;
+  margin-top: 30px;
+  color: $color_blue;
+  background-color: $color_blue;
 }
 
 // #plus-btn {
