@@ -1,3 +1,9 @@
 <div class="toxic-ct" id="toxic-ct<%=toxic.id%>">
   <%= toxic.current_quantity %>
 </div>
+<% if toxic.current_quantity == toxic.total_quantity%>
+  <button class="invisible_plus"></button>
+<% end %>
+<% if toxic.current_quantity.zero?%>
+  <button class="invisible_minus"></button>
+<% end %>
