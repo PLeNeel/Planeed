@@ -76,3 +76,20 @@
 .enable {
   z-index: 1;
 }
+
+.scan-btn {
+  line-height: 50px;
+  padding: 10px;
+  background-color: $color_yellow;
+  box-shadow: -3px 3px 5px black;
+  position: absolute;
+  right: 0px;
+  top: 15px;
+  z-index: 3;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  &:hover { text-decoration: none; color: #101010;}
+  &:focus { text-decoration: none; color: #101010;}
+  &:active { text-decoration: none; color: #101010;}
+  &:visited { text-decoration: none; color: #101010;}
+}
