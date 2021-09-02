@@ -1,0 +1,32 @@
+.background-white {
+  background-color:  #61A2DE;
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+
+}
+
+.btn-primary {
+  background-color: #61A2DE;
+}
+
+.form-booking{
+  color: #2F87D9;
+  .form-control:valid {
+      border-color: #61A2DE;
+  }
+}
+
+.booking-avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
