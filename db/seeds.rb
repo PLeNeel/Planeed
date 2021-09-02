@@ -21,8 +21,7 @@ puts "creating services"
 service1 = Service.create(
   name: "Chirurgie Orthopédique",
   phone_number: "Anesthésiste du jour:,Dr Ducombs 05.45.34.34.34,Chirurgien du Rachis:,Dr Fabre  05.67.98.07.98,Chirurgien des membres inférieurs:,Dr Vital 05.67.56.76.16,Cadre de Santé :,Mme Genet  05.56.45.78.98,Réanimation: 05.34.54.34.18,Responsable plaie et cicatrisation:,Infirmière Maria :, 05.23.02.32.23",
-
-  predominant_disease:"L’orthopédie est une spécialité chirurgicale qui permet de corriger les défauts de l’appareil locomoteur de nature congénitale ou acquise durant la croissance voire à l’âge adulte (os, articulations, muscles, tendons et nerfs). Elle comprend le traitement chirurgical des affections des membres supérieurs (épaule, coude et main), des membres inférieurs (hanche, genou, cheville et pied) et du rachis.",
+  predominant_disease:"L’orthopédie est une spécialité chirurgicale qui permet de corriger les défauts de l’appareil locomoteur de nature congénitale ou acquise durant la croissance voire à l’âge adulte (os, articulations, muscles, tendons et nerfs).Elle comprend le traitement chirurgical des affections des membres supérieurs (épaule, coude et main), des membres inférieurs (hanche, genou, cheville et pied) et du rachis.",
   typical_workday:"- Transmissions orales et écrites avec l’équipe de nuit,- Vérification des dossiers de bloc, prémédications,- Bilans sanguins,- Dextro si patients diabétiques,- Prise des constantes,- Surveillance des perfusions,- Evaluation de la douleur,- Toilettes en collaboration avec les aides-soignantes,- Réfection des pansements selon protocole,- Transmissions écrites et orales avec l’équipe suivantes",
   predominant_drugs:"- Anti-inflammatoires,- Antalgiques,- PCA de morphine,- Anticoagulants,- Antibiotiques")
 
@@ -33,13 +32,13 @@ service1 = Service.create(
 #   typical_workday: "6h45 - 14h",
 #   predominant_drugs: "anti-douleurs"
 # )
-# Service.create(
-#   name: "urologique",
-#   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
-#   predominant_disease: "inflamation",
-#   typical_workday: "6h45 - 14h",
-#   predominant_drugs: "antibiotique"
-# )
+service2 = Service.create(
+   name: "Urologie",
+   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
+   predominant_disease: "inflamation",
+   typical_workday: "6h45 - 14h",
+   predominant_drugs: "antibiotique"
+ )
 # Service.create(
 #   name: "des soins intensifs",
 #   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
@@ -95,6 +94,20 @@ User.create(
   admin: false,
   service: Service.first
 )
+
+User.create(
+  first_name: "Steve",
+  last_name: "Madden",
+  password: "123123",
+  experience: " 2 ans de service ",
+  speciality: " Urologie ",
+  phone_number: "06.33.33.33.28",
+  address: "107 rue Stuttenberg, Bordeaux",
+  email: "Stevemadden@gmail.com",
+  service_admin: "Urologie",
+  admin: true,
+  service: Service.second
+)
 30.times do
   User.create(
     first_name: Faker::Name.first_name,
@@ -137,14 +150,13 @@ puts "#{Availability.count} availabilities created"
 # t.index ["service_id"], name: "index_missions_on_service_id"
 puts "creating missions"
 
-Mission.create!(
-  date: Date.new(2021,9,2),
-  description: "renforts demandés",
-  service: service1
-)
-puts "#{Mission.count} missions created"
+#  Mission.create!(
+#    date: Date.new(2021,9,4),
+#    description: "renforts demandés",
+#    service: service2
+#  )
+ puts "#{Mission.count} missions created"
 
 Toxic.create!(name:'coca', total_quantity: 2, current_quantity: 1, service: service1, barcode: '5000112558265')
 Toxic.create!(name:'gel hydroalcoolique', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3518646213007')
 Toxic.create!(name: 'sel', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3560071184971')
-
