@@ -21,7 +21,7 @@ puts "creating services"
 service1 = Service.create(
   name: "Chirurgie Orthopédique",
   phone_number: "Anesthésiste du jour:,Dr Ducombs 05.33.33.33.33,Chirurgien du Rachis:,Dr Fabre  05.33.33.33.33,Chirurgien des membres inférieurs:,Dr Vital 05.33.33.33.33,Cadre de Santé :,Mme Genet  05.33.33.33.33,Réanimation: 05.33.33.33.33,Responsable plaie et cicatrisation:,Infirmière Maria :, 05.33.33.33.33",
-  predominant_disease:"L’orthopédie est une spécialité chirurgicale qui permet de corriger les défauts de l’appareil locomoteur de nature congénitale ou acquise durant la croissance voire à l’âge adulte (os, articulations, muscles, tendons et nerfs). Elle comprend le traitement chirurgical des affections des membres supérieurs (épaule, coude et main), des membres inférieurs (hanche, genou, cheville et pied) et du rachis.",
+  predominant_disease:"L’orthopédie est une spécialité chirurgicale qui permet de corriger les défauts de l’appareil locomoteur de nature congénitale ou acquise durant la croissance voire à l’âge adulte (os, articulations, muscles, tendons et nerfs).Elle comprend le traitement chirurgical des affections des membres supérieurs (épaule, coude et main), des membres inférieurs (hanche, genou, cheville et pied) et du rachis.",
   typical_workday:"- Transmissions orales et écrites avec l’équipe de nuit,- Vérification des dossiers de bloc, prémédications,- Bilans sanguins,- Dextro si patients diabétiques,- Prise des constantes,- Surveillance des perfusions,- Evaluation de la douleur,- Toilettes en collaboration avec les aides-soignantes,- Réfection des pansements selon protocole,- Transmissions écrites et orales avec l’équipe suivantes",
   predominant_drugs:"- Anti-inflammatoires,- Antalgiques,- PCA de morphine,- Anticoagulants,- Antibiotiques")
 
@@ -160,3 +160,9 @@ puts "creating missions"
 Toxic.create!(name:'coca', total_quantity: 2, current_quantity: 1, service: service1, barcode: '5000112558265')
 Toxic.create!(name:'gel hydroalcoolique', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3518646213007')
 Toxic.create!(name: 'sel', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3560071184971')
+
+
+Chatroom.create(
+   name: "Chat",
+   service_id: Service.first
+ )
