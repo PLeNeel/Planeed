@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Service <%= @service.name %></h1>
+  <%= link_to "Scan", new_scan_path, class: "scan-btn", data: {turbolinks: false}%>
   <% @toxics.each do |toxic| %>
     <div class="toxic-card">
       <div class="toxic-name" data-toxicName="<%= toxic.name %>">
