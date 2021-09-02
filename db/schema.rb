@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_01_132510) do
+
+ActiveRecord::Schema.define(version: 2021_09_02_094334) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +33,24 @@ ActiveRecord::Schema.define(version: 2021_09_01_132510) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["mission_id"], name: "index_bookings_on_mission_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "service_id", null: false
+    t.index ["service_id"], name: "index_chatrooms_on_service_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "missions", force: :cascade do |t|
@@ -100,6 +120,9 @@ ActiveRecord::Schema.define(version: 2021_09_01_132510) do
   add_foreign_key "availabilities", "users"
   add_foreign_key "bookings", "missions"
   add_foreign_key "bookings", "users"
+  add_foreign_key "chatrooms", "services"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "missions", "services"
   add_foreign_key "toxics", "services"
   add_foreign_key "users", "services"

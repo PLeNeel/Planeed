@@ -74,7 +74,14 @@
     <%= link_to service_toxics_path(@service.id), class: "card_service_day" do %>
         <h1>Gestion des Toxiques</h1>
     <% end %>
-    </div>
+  </div>
+
+  <div class="card mb-3">
+    <%= link_to service_chatroom_path(1), class: "card_service_day" do %>
+        <h1>Chat</h1>
+    <% end %>
+  </div>
+
   <% if current_user.admin == true %>
   <div class="card mb-3">
     <%= link_to edit_service_path(@service), class: "card_service_day" do %>
