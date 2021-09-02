@@ -4,19 +4,19 @@ const withdraw = () => {
   document.querySelectorAll('.minus-btn').forEach((button) => {
     button.addEventListener(("click"), (event) => {
       const toxicId = button.dataset.id
-      const withdrawidid = document.getElementById(`toxic-ct${toxicId}`)
-      console.log(withdrawidid)
-      const withdrawId = withdrawidid.dataset.lastwithdrawid
-      console.log(withdrawId)
+      // const withdrawidid = document.getElementById(`toxic-ct${toxicId}`)
+      // console.log(withdrawidid)
+      // const withdrawId = withdrawidid.dataset.lastwithdrawid
+      // console.log(withdrawId)
       const operator = button.dataset.operator
-      const url = `http://localhost:3000/toxics/${toxicId}/withdraws`;
+      const url = `${window.location.origin}/toxics/${toxicId}/withdraws`;
       fetch(url, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ quantity: 1, toxic_id: toxicId, withdraw_id: withdrawId, operator: operator })
+        body: JSON.stringify({ quantity: 1, toxic_id: toxicId, operator: operator })
       })
       .then(response => response.text())
       .then((data) => {

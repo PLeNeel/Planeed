@@ -119,12 +119,12 @@ puts "#{User.count} user created"
 # t.datetime "updated_at", precision: 6, null: false
 # t.index ["user_id"], name: "index_availabilities_on_user_id"
 puts "creating availabilities"
-100.times do
-  Availability.create(
-    date: Faker::Date.between(from: Date.today, to: 2.month.from_now),
-    user_id: User.all.sample.id
-  )
-end
+#100.times do
+#  Availability.create(
+#    date: Faker::Date.between(from: Date.today, to: 2.month.from_now),
+#    user_id: User.all.sample.id
+#  )
+#end
 
 puts "#{Availability.count} availabilities created"
 
@@ -147,3 +147,4 @@ puts "#{Mission.count} missions created"
 Toxic.create!(name:'coca', total_quantity: 2, current_quantity: 1, service: service1, barcode: '5000112558265')
 Toxic.create!(name:'gel hydroalcoolique', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3518646213007')
 Toxic.create!(name: 'sel', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3560071184971')
+

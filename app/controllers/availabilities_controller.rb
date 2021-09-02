@@ -12,7 +12,11 @@ class AvailabilitiesController < ApplicationController
     @availability = Availability.new(availability_params)
     @availability.user = current_user
     if @availability.save
-      render json: @availability
+      respond_to do |format|
+        format.html
+        format.text
+        format.json { render json: @availability }
+      end
       # redirect_to availabilities_path
     else
       render new

@@ -13,8 +13,8 @@ const horaire = () => {
      }
     let year = date.getFullYear();
     x.title = `${day}-${monthh}-${year}`;
-    let nameDay = date.getDay();
-    // console.log(nameDay);
+    let nameDay = date.getDay() - 1;
+    console.log(nameDay);
     switch (nameDay) {
       case 0:
         nameDay = "Lundi";
@@ -34,7 +34,7 @@ const horaire = () => {
       case 5:
         nameDay = "Samedi";
         break;
-      case 6:
+      case -1:
         nameDay = "Dimanche";
         break;
     }
@@ -92,16 +92,20 @@ const crea = () => {
     // console.log(valeur);
     const sw = card.querySelector('#checkbox');
     // console.log(sw);
+    // let response = "";
     sw.addEventListener(("click"), (event) => {
       if (sw.checked == true) {
         // event.preventDefault();
         const url = 'http://localhost:3000/availabilities';
         fetch(url, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
           body: JSON.stringify({ date: valeur })
         })
-          .then(response = console.log(response.json()))
+          .then(response => response.json())
           .then((data) => {
             console.log(data);
           })

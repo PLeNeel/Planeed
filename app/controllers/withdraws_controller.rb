@@ -43,19 +43,18 @@ class WithdrawsController < ApplicationController
 
   def update_action(operator, toxic)
     add_or_withdraw_toxics(operator, toxic)
-    @withdraw = Withdraw.find(params[:withdraw_id])
-    new_quantity = add_or_withdraw(operator)
+    @withdraw = toxic.withdraws.last
+    new_quantity = add_or_withdraw(operator, toxic)
     @withdraw.update(quantity: new_quantity)
-    @last_withdraw_id = Withdraw.last.id unless Withdraw.last.nil?
     respond_to do |format|
       format.html
       format.text
-      format.json { render partial: "toxics/toxics_btn", locals: {toxic: @toxic, last_withdraw_id: @last_withdraw_id}, formats: [:html] }
+      format.json { render partial: "toxics/toxics_btn", locals: {toxic: @toxic}, formats: [:html] }
     end
   end
 
-  def add_or_withdraw(operator)
-    @withdraw = Withdraw.find(params[:withdraw_id])
+  def add_or_withdraw(operator, toxic)
+    @withdraw = toxic.withdraws.last
     new_quantity = @withdraw.quantity
     if operator == "minus"
       new_quantity += 1
