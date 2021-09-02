@@ -5,7 +5,12 @@
       <% if user_signed_in? %>
         <div class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px;">
           <% if current_user.admin? %>
+            <div class=wrapper-notif>
             <%= image_tag "mathilde.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="notif d-flex justify-content-center align-items-center">
+          <div> 1</div>
+          </div>
+          </div>
           <% else %>
             <%= image_tag "justine.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
