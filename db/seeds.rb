@@ -157,12 +157,13 @@ puts "creating missions"
 #  )
  puts "#{Mission.count} missions created"
 
-Toxic.create!(name:'coca', total_quantity: 2, current_quantity: 1, service: service1, barcode: '5000112558265')
-Toxic.create!(name:'gel hydroalcoolique', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3518646213007')
-Toxic.create!(name: 'sel', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3560071184971')
 
+Toxic.create!(name:'Actiskenan 10mg', total_quantity: 5, current_quantity: 1, service: service1, barcode: '3068320121192')
+Toxic.create!(name:'Oxycontin 2O mg', total_quantity: 6, current_quantity: 1, service: service1, barcode: '3518646213007')
+Toxic.create!(name:'Oxycontin 30 mg', total_quantity: 4, current_quantity: 1, service: service1, barcode: '3560071184971')
 
 Chatroom.create(
    name: "Chat",
    service_id: Service.first.id
  )
+
