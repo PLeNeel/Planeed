@@ -13,4 +13,12 @@ class User < ApplicationRecord
   def last_withdraw_for(toxic)
     withdraws.where(toxic_id: toxic).last
   end
+
+  def pending_bookings_count
+    self.service.bookings.where(progress: "En attente").count
+  end
+
+  def no_seen_bookings_count
+    self.bookings.where(progress: "Validé", seen: nil).count
+  end
 end
