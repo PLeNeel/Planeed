@@ -6,6 +6,8 @@
   <p><%= @booking.user.experience %></p>
   <p><%= @booking.user.speciality %></p>
 </div>
+
+
 <%= simple_form_for @booking do |f| %>
   <%= f.input :progress %>
   <%= f.submit "Valider", class: "btn btn-primary" %>

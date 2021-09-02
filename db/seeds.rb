@@ -137,9 +137,14 @@ puts "#{Availability.count} availabilities created"
 # t.index ["service_id"], name: "index_missions_on_service_id"
 puts "creating missions"
 
-#Mission.create!(
-#date: Date.new(2021,9,2),
-#  description: "renforts demandés",
-#  service: service1
-#)
-#puts "#{Mission.count} missions created"
+Mission.create!(
+  date: Date.new(2021,9,2),
+  description: "renforts demandés",
+  service: service1
+)
+puts "#{Mission.count} missions created"
+
+Toxic.create!(name:'coca', total_quantity: 2, current_quantity: 1, service: service1, barcode: '5000112558265')
+Toxic.create!(name:'gel hydroalcoolique', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3518646213007')
+Toxic.create!(name: 'sel', total_quantity: 2, current_quantity: 1, service: service1, barcode: '3560071184971')
+
