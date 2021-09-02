@@ -164,5 +164,5 @@ Toxic.create!(name: 'sel', total_quantity: 2, current_quantity: 1, service: serv
 
 Chatroom.create(
    name: "Chat",
-   service_id: Service.first
+   service_id: Service.first.id
  )
