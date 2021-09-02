@@ -3,12 +3,22 @@
     <% if current_user&.admin == false %>
       <a href=<%= root_path %>><i class="fas fa-home"></i></a>
       <a href=<%= missions_path %>><i class="fas fa-book-medical"></i></a>
-      <a href=<%= service_chatroom_path(service_id: current_user.bookings.last.mission.service.id , id: current_user) %>><i class="fas fa-comment-dots"></i></a>
+
+      <% if user_signed_in? %>
+        <a href=<%= service_chatroom_path(service_id: current_user.bookings.last.mission.service_id, id: current_user.bookings.last.mission.service.chatrooms.last.id) %>><i class="fas fa-comment-dots"></i></a>
+      <% else %>
+        <a href=<%=  %>><i class="fas fa-comment-dots"></i></a>
+      <% end %>
+
       <a href=<%= edit_user_registration_path %>><i class="fas fa-user-md"></i></a>
     <% else %>
       <a href=<%= root_path %>><i class="fas fa-home"></i></a>
       <a href=<%= bookings_path %>><i class="fas fa-clipboard-list"></i></a>
-      <a href=<%= service_chatroom_path(service_id: 1, id: 1) %>><i class="fas fa-comment-dots"></i></a>
+      <% if user_signed_in? %>
+        <a href=<%= service_chatroom_path(service_id: current_user.service_id, id: current_user.service.chatrooms.last.id) %>><i class="fas fa-comment-dots"></i></a>
+      <% else %>
+        <a href=<%=  %>><i class="fas fa-comment-dots"></i></a>
+      <% end %>
       <a href=<%= edit_user_registration_path %>><i class="fas fa-user-md"></i></a>
     <% end %>
   </div>
