@@ -1,7 +1,7 @@
 class ScansController < ApplicationController
   def new
     unless current_user.bookings.empty?
-      @service = current_user.bookings.last.missions.last.service
+      @service = current_user.bookings.last.mission.service
     end
   end
 

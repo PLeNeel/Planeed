@@ -9,5 +9,5 @@
 </div>
 <%= puts "#{@service}" %>
 <% unless current_user.bookings.empty? %>
-  <%= link_to "retour", service_toxics_path(@service.id) %>
+  <%= link_to "retour", service_toxics_path(@service.id), class: "confirmation-scan-btn" %>
 <% end %>
