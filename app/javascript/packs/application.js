@@ -28,6 +28,7 @@ import { horaire } from "../channels/availability";
 import { crea } from "../channels/availability";
 import { withdraw } from "../channels/toxic";
 import { collapsed } from "../channels/collapse";
+import { initChatroomCable } from "../channels/chatroom_channel";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -39,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   crea();
   withdraw();
   collapsed();
+  initChatroomCable();
 });

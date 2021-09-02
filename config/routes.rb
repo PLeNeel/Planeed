@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   resources :services, only: [:show, :edit, :update] do
     resources :messages, only: [:create, :destroy]
     resources :toxics, only: [:index]
+    resources :chatrooms, only: [:show, :create, :destroy] do
+      resources :messages, only: :create
+    end
+  end
+  resources :chatrooms, only: [:show, :create, :destroy] do
+    resources :messages, only: :create
   end
   resources :toxics, only: [:update] do
     resources :withdraws, only: [:create]
