@@ -7,3 +7,7 @@
     <%= f.submit  %>
   <% end %>
 </div>
+<%= puts "#{@service}" %>
+<% unless current_user.bookings.empty? %>
+  <%= link_to "retour", service_toxics_path(@service.id) %>
+<% end %>

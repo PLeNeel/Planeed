@@ -1,5 +1,8 @@
 class ScansController < ApplicationController
   def new
+    unless current_user.bookings.empty?
+      @service = current_user.bookings.last.missions.last.service
+    end
   end
 
   def create
@@ -7,7 +10,7 @@ class ScansController < ApplicationController
     if @toxic
       redirect_to toxic_path(@toxic)
     else
-      flash[:notice] = "No match found"
+      flash[:notice] = "Produit inconnu"
       render :new
     end
   end
