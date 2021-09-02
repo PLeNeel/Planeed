@@ -1,0 +1,20 @@
+
+#messages{
+    position: relative;
+    padding: 1rem 0;
+    border-right: 1px solid #e6ecf3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+  .message-container{
+    margin-top: 15px;
+    background-color: white;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px 20px;
+  }
+
+}
