@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2021_09_02_145839) do
 
   # These are extensions that must be enabled in order to support this database
@@ -44,9 +43,9 @@ ActiveRecord::Schema.define(version: 2021_09_02_145839) do
   end
 
   create_table "last_messages", force: :cascade do |t|
-    t.bigint "message_id", null: false
+    t.bigint "message_id"
     t.bigint "user_id", null: false
-    t.bigint "chatroom_id", null: false
+    t.bigint "chatroom_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chatroom_id"], name: "index_last_messages_on_chatroom_id"

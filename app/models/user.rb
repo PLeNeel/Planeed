@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :withdraws, dependent: :destroy
   has_many :last_messages
   has_many :messages
+  has_many :chatrooms, through: :messages
 
   validates :phone_number, :first_name, :last_name, :experience, :speciality, presence: true
 
@@ -22,5 +23,13 @@ class User < ApplicationRecord
 
   def no_seen_bookings_count
     self.bookings.where(progress: "Validé", seen: nil).count
+  end
+
+  def message_notif?
+    chatroom_ids = self.chatrooms.map(&:id)
+    all_messages = Message.where(chatroom: chatroom_ids)
+    last_message = LastMessage.where(user: self).last
+    seen_messages = all_messages.where('created_at <= ?', last_message&.message&.created_at)
+    seen_messages.count != all_messages.count
   end
 end

@@ -9,7 +9,11 @@
         <a href=<%= service_chatroom_path(service_id: current_user.bookings.last.mission.service_id, id: current_user.bookings.last.mission.service.chatrooms.last.id) %>><i class="fas fa-comment-dots"></i></a>
 
       <% else %>
-        <a href=<%=  %>><i class="fas fa-comment-dots"></i></a>
+        <a class="wrapper-notif" href=<%= chatroom_path(current_user.chatrooms.last) %>><i class="fas fa-comment-dots"></i>
+        <% if current_user.message_notif? %>
+            <div class="notif d-flex justify-content-center align-items-center"><div>1</div></div>
+        <% end %>
+        </a>
       <% end %>
 
       <a href=<%= edit_user_registration_path %>><i class="fas fa-user-md"></i></a>
