@@ -1,4 +1,7 @@
-<h1> Scanner des toxiques</h1>
-<%= @toxic.name %>
-
-<%= link_to "Retirer du stock", toxic_withdraws_path(@toxic), method: :post %>
+<div class="container">
+  <div class="confirmation-withdraw">
+    <p>Souhaitez vous retirer ce produit ?</p>
+    <p>- <%= @toxic.name %></p>
+  </div>
+  <%= link_to "confirmer", toxic_withdraws_path(@toxic), class: "confirmation-scan-btn", method: :post %>
+</div>

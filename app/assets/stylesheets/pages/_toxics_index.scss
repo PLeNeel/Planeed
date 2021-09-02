@@ -60,7 +60,35 @@
   display: inline-block;
   margin: 5px;
   margin-top: 30px;
-  color: $color_yellow;
+  border-radius: 5px;
+}
+
+.invisible_plus {
+  display: inline-block;
+  position: absolute;
+  border: none;
+  width: 55px;
+  height: 55px;
+  right: 5px;
+  z-index: 5;
+  margin: 5px;
+  margin-top: 30px;
+  color: $color_blue;
+  background-color: $color_blue;
+}
+
+.invisible_minus {
+  display: inline-block;
+  position: absolute;
+  border: none;
+  width: 55px;
+  height: 55px;
+  right: 75px;
+  z-index: 5;
+  margin: 5px;
+  margin-top: 30px;
+  color: $color_blue;
+  background-color: $color_blue;
 }
 
 // #plus-btn {
@@ -75,4 +103,26 @@
 
 .enable {
   z-index: 1;
+}
+
+.scan-btn {
+  line-height: 50px;
+  padding: 10px;
+  background-color: $color_yellow;
+  box-shadow: -3px 3px 5px black;
+  position: absolute;
+  right: 0px;
+  top: 15px;
+  z-index: 3;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  &:hover { text-decoration: none; color: #101010;}
+  &:focus { text-decoration: none; color: #101010;}
+  &:active { text-decoration: none; color: #101010;}
+  &:visited { text-decoration: none; color: #101010;}
+}
+
+.confirmation-withdraw {
+  margin: 20px;
+  font-size: 24px;
 }

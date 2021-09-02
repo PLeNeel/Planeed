@@ -10,15 +10,8 @@ class WithdrawsController < ApplicationController
 
     if params[:operator].present? # on vient du bouton
       @operator = params[:operator]
-      if @toxic.total_quantity == @toxic.current_quantity
-        brand_new_minus_action(@operator, @toxic)
-      elsif @toxic.current_quantity.zero?
-        # not working, à checker
-        # redirect_to service_toxics_path(@toxic.service_id), notice: "stock épuisé, veuillez contacter le responsable du réapprovisionnement"
-      else
-        update_action(@operator, @toxic)
-      end
-    else #on vient du scan
+      brand_new_minus_action(@operator, @toxic)
+    else # on vient du scan
       @withdraw = Withdraw.create(toxic: @toxic, user: current_user)
       @toxic.current_quantity -= 1
       flash[:notice] = "Le toxique \'#{@toxic.name}\' a bien été retiré"
@@ -41,28 +34,28 @@ class WithdrawsController < ApplicationController
     end
   end
 
-  def update_action(operator, toxic)
-    add_or_withdraw_toxics(operator, toxic)
-    @withdraw = toxic.withdraws.last
-    new_quantity = add_or_withdraw(operator, toxic)
-    @withdraw.update(quantity: new_quantity)
-    respond_to do |format|
-      format.html
-      format.text
-      format.json { render partial: "toxics/toxics_btn", locals: {toxic: @toxic}, formats: [:html] }
-    end
-  end
+  # def update_action(operator, toxic)
+  #   add_or_withdraw_toxics(operator, toxic)
+  #   @withdraw = toxic.withdraws.last
+  #   new_quantity = add_or_withdraw(operator, toxic)
+  #   @withdraw.update(quantity: new_quantity)
+  #   respond_to do |format|
+  #     format.html
+  #     format.text
+  #     format.json { render partial: "toxics/toxics_btn", locals: {toxic: @toxic}, formats: [:html] }
+  #   end
+  # end
 
-  def add_or_withdraw(operator, toxic)
-    @withdraw = toxic.withdraws.last
-    new_quantity = @withdraw.quantity
-    if operator == "minus"
-      new_quantity += 1
-    else
-      new_quantity -= 1
-    end
-    new_quantity
-  end
+  # def add_or_withdraw(operator, toxic)
+  #   @withdraw = toxic.withdraws.last
+  #   new_quantity = @withdraw.quantity
+  #   if operator == "minus"
+  #     new_quantity += 1
+  #   else
+  #     new_quantity -= 1
+  #   end
+  #   new_quantity
+  # end
 
   def add_or_withdraw_toxics(operator, toxic)
     new_quantity = toxic.current_quantity
