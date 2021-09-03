@@ -7,13 +7,13 @@ class WithdrawsController < ApplicationController
 
   def create
     @toxic = Toxic.find(params[:toxic_id])
-
     if params[:operator].present? # on vient du bouton
       @operator = params[:operator]
       brand_new_minus_action(@operator, @toxic)
     else # on vient du scan
       @withdraw = Withdraw.create(toxic: @toxic, user: current_user)
-      @toxic.current_quantity -= 1
+      toxic_ct = @toxic.current_quantity - 1
+      @toxic.update(current_quantity: toxic_ct)
       flash[:notice] = "Le toxique \'#{@toxic.name}\' a bien été retiré"
       redirect_to new_scan_path
     end
