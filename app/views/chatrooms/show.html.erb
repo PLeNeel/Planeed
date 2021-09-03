@@ -1,20 +1,38 @@
+
+<div class="container">
 <h1>Messagerie du service <%= @chatroom.name %></h1>
+
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
+    <% if message.user == current_user %>
+    <div class="message-container ml-5" id="message-<%= message.id %>">
       <i class="author">
         <% if message.user.first_name == "Mathilde" %>
           <span><%= message.user.first_name %> - Cadre de santé</span>
         <% else %>
           <span><%= message.user.first_name %> - Infirmière</span>
         <% end %>
-        <small><%= message.created_at.strftime("%d/%m/%Y à %R") %></small>
       </i>
-      <p><%= message.content %></p>
+      <p class="my-3"><%= message.content %></p>
+        <small><%= message.created_at.strftime("%d/%m/%Y à %R") %></small>
     </div>
+    <% else %>
+     <div class="message-container mr-5" id="message-<%= message.id %>">
+      <i class="author">
+        <% if message.user.first_name == "Mathilde" %>
+          <span><%= message.user.first_name %> - Cadre de santé</span>
+        <% else %>
+          <span><%= message.user.first_name %> - Infirmière</span>
+        <% end %>
+      </i>
+      <p class="my-3"><%= message.content %></p>
+        <small><%= message.created_at.strftime("%d/%m/%Y à %R") %></small>
+    </div>
+    <% end %>
   <% end %>
 </div>
 
 <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
   <%= f.input :content, label: false %>
 <% end %>
+</div>
