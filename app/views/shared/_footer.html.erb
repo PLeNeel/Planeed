@@ -3,19 +3,23 @@
     <% if current_user&.admin == false %>
       <a href=<%= root_path %>><i class="fas fa-home"></i></a>
       <a href=<%= missions_path %>><i class="fas fa-book-medical"></i></a>
-
-
+    
       <% if (user_signed_in?) && (current_user.bookings.present?) %>
         <a href=<%= service_chatroom_path(service_id: current_user.bookings.last.mission.service_id, id: current_user.bookings.last.mission.service.chatrooms.last.id) %>><i class="fas fa-comment-dots"></i></a>
 
       <% else %>
-        <a href=<%=  %>><i class="fas fa-comment-dots"></i></a>
+        <a class="wrapper-notif" href=<%= chatroom_path(current_user.chatrooms.last) %>><i class="fas fa-comment-dots"></i>
+        <% if current_user.message_notif? %>
+            <div class="notif d-flex justify-content-center align-items-center"><div>1</div></div>
+        <% end %>
+        </a>
       <% end %>
 
       <a href=<%= edit_user_registration_path %>><i class="fas fa-user-md"></i></a>
     <% else %>
       <a href=<%= root_path %>><i class="fas fa-home"></i></a>
       <a href=<%= bookings_path %>><i class="fas fa-clipboard-list"></i></a>
+
        <% if user_signed_in? %>
         <a href=<%= service_chatroom_path(service_id: current_user.service_id, id: current_user.service.chatrooms.last.id) %>><i class="fas fa-comment-dots"></i></a>
       <% else %>
