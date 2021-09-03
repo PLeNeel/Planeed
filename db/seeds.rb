@@ -25,6 +25,7 @@ service1 = Service.create(
   typical_workday:"- Transmissions orales et écrites avec l’équipe de nuit,- Vérification des dossiers de bloc, prémédications,- Bilans sanguins,- Dextro si patients diabétiques,- Prise des constantes,- Surveillance des perfusions,- Evaluation de la douleur,- Toilettes en collaboration avec les aides-soignantes,- Réfection des pansements selon protocole,- Transmissions écrites et orales avec l’équipe suivantes",
   predominant_drugs:"- Anti-inflammatoires,- Antalgiques,- PCA de morphine,- Anticoagulants,- Antibiotiques")
 
+
 # Service.create(
 #   name: "des urgences",
 #   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
@@ -32,13 +33,7 @@ service1 = Service.create(
 #   typical_workday: "6h45 - 14h",
 #   predominant_drugs: "anti-douleurs"
 # )
-service2 = Service.create(
-   name: "Urologie",
-   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
-   predominant_disease: "inflamation",
-   typical_workday: "6h45 - 14h",
-   predominant_drugs: "antibiotique"
- )
+
 # Service.create(
 #   name: "des soins intensifs",
 #   phone_number: Faker::PhoneNumber.subscriber_number(length: 10),
@@ -67,7 +62,7 @@ puts "#{Service.count} service created"
 # t.boolean "admin"
 
 puts "creating users"
-User.create(
+mathilde = User.create(
   first_name: "Mathilde",
   last_name: "Sempéré",
   password: "123123",
@@ -81,7 +76,7 @@ User.create(
   service: Service.first
 )
 
-User.create(
+justine = User.create(
   first_name: "Justine",
   last_name: "Baroque",
   password: "123123",
@@ -90,6 +85,21 @@ User.create(
   phone_number: "06.33.33.33.28",
   address: "107 rue Stuttenberg, Bordeaux",
   email: "justinebaroque@gmail.com",
+  service_admin: "Orthopédie",
+  admin: false,
+  service: Service.first
+)
+
+
+marie = User.create(
+  first_name: "Marie",
+  last_name: "Petit",
+  password: "123123",
+  experience: " 5 ans ",
+  speciality: "Orthopédie",
+  phone_number: "06.33.33.33.28",
+  address: "108 rue Stuttenberg, Bordeaux",
+  email: "Mariepetite@gmail.com",
   service_admin: "Orthopédie",
   admin: false,
   service: Service.first
@@ -163,7 +173,17 @@ Toxic.create!(name:'Oxycontin 2O mg', total_quantity: 6, current_quantity: 1, se
 Toxic.create!(name:'Oxycontin 30 mg', total_quantity: 4, current_quantity: 1, service: service1, barcode: '3560071184971')
 
 Chatroom.create(
-   name: "Chat",
-   service_id: Service.first.id
+   name: service1.name,
+   service: service1
  )
 
+Message.create(
+  user: marie,
+  chatroom: service1.chatrooms.first,
+  content: "Bonjour, désolé je serai absente aujourd'hui",
+)
+Message.create(
+  user: mathilde,
+  chatroom: service1.chatrooms.first,
+  content: "Bonjour, je créé une mission",
+)

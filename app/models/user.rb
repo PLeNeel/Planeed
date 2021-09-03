@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :availabilities, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :withdraws, dependent: :destroy
-  has_many :last_messages
-  has_many :messages
+  has_many :last_messages, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_many :chatrooms, through: :messages
 
   validates :phone_number, :first_name, :last_name, :experience, :speciality, presence: true
