@@ -1,5 +1,5 @@
 <div class="container">
-<h1>#<%= @chatroom.name %></h1>
+<h1><%= @chatroom.name %></h1>
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
     <% if message.user == current_user %>
@@ -11,7 +11,7 @@
           <span><%= message.user.first_name %> - Infirmière</span>
         <% end %>
       </i>
-      <p><%= message.content %></p>
+      <p class="my-3"><%= message.content %></p>
         <small><%= message.created_at.strftime("%d/%m/%Y à %R") %></small>
     </div>
     <% else %>
@@ -23,7 +23,7 @@
           <span><%= message.user.first_name %> - Infirmière</span>
         <% end %>
       </i>
-      <p><%= message.content %></p>
+      <p class="my-3"><%= message.content %></p>
         <small><%= message.created_at.strftime("%d/%m/%Y à %R") %></small>
     </div>
     <% end %>
