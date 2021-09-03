@@ -98,21 +98,27 @@
 }
 
 .scan-btn {
-  line-height: 50px;
-  padding: 10px;
-  background-color: $color_yellow;
-  box-shadow: -3px 3px 5px black;
-  position: absolute;
-  right: 0px;
-  top: 15px;
-  z-index: 3;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  &:hover { text-decoration: none; color: #101010;}
-  &:focus { text-decoration: none; color: #101010;}
-  &:active { text-decoration: none; color: #101010;}
-  &:visited { text-decoration: none; color: #101010;}
+      line-height: 50px;
+    padding: 10px;
+    width: 90px;
+    border-radius: 5px;
+    background-color: #2f87d9;
+    box-shadow: -3px 3px 5px black;
+    position: absolute;
+    color: white;
+    padding-left: 25px;
+    padding-right: 5px;
+    left: 146px;
+    bottom: 214px;
+    z-index: 3;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  &:hover { text-decoration: none; color: #ffffff;}
+  &:focus { text-decoration: none; color: #ffffff;}
+  &:active { text-decoration: none; color: #ffffff;}
+  &:visited { text-decoration: none; color: #ffffff;}
 }
+
 
 .confirmation-withdraw {
   margin: 20px;
