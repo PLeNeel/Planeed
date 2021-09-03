@@ -70,23 +70,23 @@ mathilde = User.create(
   speciality: " Orthopédie ",
   phone_number: "06.33.33.33.33",
   address: "107 rue Stuttenberg, Bordeaux",
-  email: "mathilde-sempere@gmail.com",
+  email: "mathilde@gmail.com",
   service_admin: "Orthopédie",
-  admin: true,
+  admin: false,
   service: Service.first
 )
 
 justine = User.create(
-  first_name: "Justine",
-  last_name: "Baroque",
+  first_name: "Florian",
+  last_name: "Olhasque",
   password: "123123",
   experience: " 2 ans ",
   speciality: "Orthopédie",
   phone_number: "06.33.33.33.28",
-  address: "107 rue Stuttenberg, Bordeaux",
-  email: "justinebaroque@gmail.com",
+  address: "109 rue Stuttenberg, Bordeaux",
+  email: "florian@gmail.com",
   service_admin: "Orthopédie",
-  admin: false,
+  admin: true,
   service: Service.first
 )
 
@@ -176,14 +176,3 @@ Chatroom.create(
    name: service1.name,
    service: service1
  )
-
-Message.create(
-  user: marie,
-  chatroom: service1.chatrooms.first,
-  content: "Bonjour, désolé je serai absente aujourd'hui",
-)
-Message.create(
-  user: mathilde,
-  chatroom: service1.chatrooms.first,
-  content: "Bonjour, je créé une mission",
-)
