@@ -77,14 +77,14 @@ mathilde = User.create(
 )
 
 justine = User.create(
-  first_name: "Justine",
-  last_name: "Baroque",
+  first_name: "Florian",
+  last_name: "Olhasque",
   password: "123123",
   experience: " 2 ans ",
   speciality: "Orthopédie",
   phone_number: "06.33.33.33.28",
   address: "107 rue Stuttenberg, Bordeaux",
-  email: "justinebaroque@gmail.com",
+  email: "FlOlasq@gmail.com",
   service_admin: "Orthopédie",
   admin: false,
   service: Service.first
