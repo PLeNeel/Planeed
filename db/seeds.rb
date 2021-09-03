@@ -72,21 +72,21 @@ mathilde = User.create(
   address: "107 rue Stuttenberg, Bordeaux",
   email: "mathilde-sempere@gmail.com",
   service_admin: "Orthopédie",
-  admin: false,
+  admin: true,
   service: Service.first
 )
 
 justine = User.create(
-  first_name: "Florian",
-  last_name: "Olhasque",
+  first_name: "Justine",
+  last_name: "Baroque",
   password: "123123",
   experience: " 2 ans ",
   speciality: "Orthopédie",
   phone_number: "06.33.33.33.28",
   address: "107 rue Stuttenberg, Bordeaux",
-  email: "FlOlasq@gmail.com",
+  email: "justinebaroque@gmail.com",
   service_admin: "Orthopédie",
-  admin: true,
+  admin: false,
   service: Service.first
 )
 
@@ -168,9 +168,9 @@ puts "creating missions"
  puts "#{Mission.count} missions created"
 
 
-Toxic.create!(name:'Actiskenan 10mg', total_quantity: 5, current_quantity: 1, service: service1, barcode: '3068320121192')
-Toxic.create!(name:'Oxycontin 2O mg', total_quantity: 6, current_quantity: 1, service: service1, barcode: '3518646213007')
-Toxic.create!(name:'Oxycontin 30 mg', total_quantity: 4, current_quantity: 1, service: service1, barcode: '3560071184971')
+Toxic.create!(name:'Actiskenan 10mg', total_quantity: 5, current_quantity: 5, service: service1, barcode: '3068320121192')
+Toxic.create!(name:'Oxycontin 2O mg', total_quantity: 6, current_quantity: 6, service: service1, barcode: '3518646213007')
+Toxic.create!(name:'Oxycontin 30 mg', total_quantity: 4, current_quantity: 4, service: service1, barcode: '3560071184971')
 
 Chatroom.create(
    name: service1.name,
@@ -180,10 +180,10 @@ Chatroom.create(
 Message.create(
   user: marie,
   chatroom: service1.chatrooms.first,
-  content: "Bonjour, désolé je serai absente le 04 Septembre",
+  content: "Bonjour, désolé je serai absente aujourd'hui",
 )
 Message.create(
-  user: justine,
+  user: mathilde,
   chatroom: service1.chatrooms.first,
-  content: "Bonjour Marie, bien noté"
+  content: "Bonjour, je créé une mission",
 )
